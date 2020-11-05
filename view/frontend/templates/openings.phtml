@@ -1,0 +1,42 @@
+<div data-block="dropdown" class="minicart-wrapper">
+    <a class="action" data-trigger="trigger">
+        <span data-bind="i18n: 'Click Here'"></span>
+    </a>
+</div>
+<div class="block block-minicart" class="block block-minicart" data-role="dropdownDialog" data-mage-init='{
+        "dropdownDialog": {
+            "appendTo": "[data-block=dropdown]",
+            "triggerTarget":"[data-trigger=trigger]",
+            "timeout": 800000,
+            "closeOnMouseLeave": true,
+            "closeOnEscape": true,
+            "autoOpen": false,
+            "triggerClass": "active",
+            "parentClass": "active",
+            "buttons": []
+        }
+     }'>
+    <div id="minicart-content-wrapper" data-bind="scope: 'openings_content'">
+                <!-- ko template: getTemplate() --><!-- /ko -->
+    </div>
+
+
+    <script type="text/x-magento-init">
+        {
+        "[data-block='dropdown']": {
+            "Magento_Ui/js/core/app": {
+                "components": {
+                    "openings_content": {
+                        "component": "Hayyan_OpeningsTime/js/koopenings",
+                        "config": {
+                            "template": "Hayyan_OpeningsTime/openings/content",
+                            "heading": "Hello World!"
+                        }
+                    }
+                }
+            }
+        }
+    }
+</script>
+
+</div>
