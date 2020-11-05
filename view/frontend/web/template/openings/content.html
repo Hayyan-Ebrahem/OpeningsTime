@@ -1,8 +1,9 @@
 <section class="openinghours">
     <div class="openinghourscontent section">
         <div class="header">
-             <h2>Opening hours</h2>
- <span id="open-status"><small class="openorclosed">We are</small></span>
+            <h2>Opening hours</h2>
+            <span data-bind="i18n: 'We Are '">We Are </span>
+            <span class="open-status" style="color:green;" data-bind="text: getOpeningStatus()"></span>
 
         </div>
         <table class="opening-hours-table">
@@ -49,6 +50,6 @@
                 <td class="closes">16:00</td>
             </tr>
         </table>
-   
+
     </div>
 </section>
