@@ -2,8 +2,11 @@
     <div class="openinghourscontent section">
         <div class="header">
             <h2>Opening hours</h2>
-            <span data-bind="i18n: 'We Are '">We Are </span>
-            <span class="open-status" style="color:green;" data-bind="text: getOpeningStatus()"></span>
+            <div data-bind="attr: {class: getOpeningStatus()}">
+                <span data-bind="i18n: 'We Are '">We Are </span>
+                <span data-bind="text: getOpeningStatus()"></span>
+            </div>
+
 
         </div>
         <table class="opening-hours-table">

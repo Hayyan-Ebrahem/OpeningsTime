@@ -1,9 +1,9 @@
-<div data-block="dropdown" class="minicart-wrapper">
+<div data-block="dropdown" class="openings-wrapper">
     <a class="action" data-trigger="trigger">
-        <span data-bind="i18n: 'Click Here'"></span>
+        <span class="text"><?= $block->escapeHtml(__('Openings Hours')) ?></span>
     </a>
 </div>
-<div class="block block-minicart" class="block block-minicart" data-role="dropdownDialog" data-mage-init='{
+<div class="block block-openings" class="block block-openings" data-role="dropdownDialog" data-mage-init='{
         "dropdownDialog": {
             "appendTo": "[data-block=dropdown]",
             "triggerTarget":"[data-trigger=trigger]",
@@ -13,11 +13,12 @@
             "autoOpen": false,
             "triggerClass": "active",
             "parentClass": "active",
-            "buttons": []
+            "buttons": null
         }
      }'>
-    <div id="minicart-content-wrapper" data-bind="scope: 'openings_content'">
-                <!-- ko template: getTemplate() --><!-- /ko -->
+    <div id="openings-content-wrapper" data-bind="scope: 'openings_content'">
+        <!-- ko template: getTemplate() -->
+        <!-- /ko -->
     </div>
 
 
