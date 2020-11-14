@@ -1,10 +1,11 @@
 define([
     'uiComponent',
+    'underscore',
+
     'jquery',
     'ko',
-    'underscore'
 
-], function (Component, $, ko, _) {
+], function ($, ko,_) {
     'use strict';
 
     return Component.extend({
@@ -13,14 +14,23 @@ define([
             // options passed into the component override these
         },
 
-        initialize: function () {
-            // add custom functionality
-            // executed only once
+        dayNames: function () {
+            var weekday = new Array(7);
+            weekday[0] = "Sunday";
+            weekday[1] = "Monday";
+            weekday[2] = "Tuesday";
+            weekday[3] = "Wednesday";
+            weekday[4] = "Thursday";
+            weekday[5] = "Friday";
+            weekday[6] = "Saturday";
+        
 
-            this._super();
+            return weekday;
+
         },
+
         getOpeningStatus: function () {
-            var currentDate = new Date();
+            var date = new Date();
             var weekday = [];
             weekday[0] = "Sunday";
             weekday[1] = "Monday";
@@ -30,11 +40,11 @@ define([
             weekday[5] = "Friday";
             weekday[6] = "Saturday";
 
-            var currentDay = weekday[currentDate.getDay()];
+            var currentDay = weekday[date.getDay()];
 
-            var currentTimeHours = currentDate.getHours();
+            var currentTimeHours = date.getHours();
             currentTimeHours = currentTimeHours < 10 ? "0" + currentTimeHours : currentTimeHours;
-            var currentTimeMinutes = currentDate.getMinutes();
+            var currentTimeMinutes = date.getMinutes();
             var timeNow = currentTimeHours + "" + currentTimeMinutes;
 
             var currentDayID = "#" + currentDay; //gets todays weekday and turns it into id
