@@ -1,11 +1,10 @@
 define([
     'uiComponent',
     'underscore',
-
-    'jquery',
     'ko',
+    'jquery'
 
-], function ($, ko,_) {
+], function (Component, ko, _,$) {
     'use strict';
 
     return Component.extend({
@@ -13,41 +12,61 @@ define([
             // default options
             // options passed into the component override these
         },
+        // jscs:disable requireCamelCaseOrUpperCaseIdentifiers
+        /**
+         * @override
+         */
+        initialize: function () {
+
+
+           return this._super();
+
+   
+
+        },
+
+        show: function () {
+            $(".openings-content-wrapper").stop().slideToggle('slow');
+
+        },
 
         dayNames: function () {
-            var weekday = new Array(7);
-            weekday[0] = "Sunday";
-            weekday[1] = "Monday";
-            weekday[2] = "Tuesday";
-            weekday[3] = "Wednesday";
-            weekday[4] = "Thursday";
-            weekday[5] = "Friday";
-            weekday[6] = "Saturday";
-        
+            var dayNames = new Array(7);
+            dayNames[0] = "Sunday";
+            dayNames[1] = "Monday";
+            dayNames[2] = "Tuesday";
+            dayNames[3] = "Wednesday";
+            dayNames[4] = "Thursday";
+            dayNames[5] = "Friday";
+            dayNames[6] = "Saturday";
 
-            return weekday;
 
+            return dayNames;
+
+        },
+        openStatus: function () {
+            return true;
         },
 
         getOpeningStatus: function () {
             var date = new Date();
-            var weekday = [];
-            weekday[0] = "Sunday";
-            weekday[1] = "Monday";
-            weekday[2] = "Tuesday";
-            weekday[3] = "Wednesday";
-            weekday[4] = "Thursday";
-            weekday[5] = "Friday";
-            weekday[6] = "Saturday";
+            var dayNames = [];
+            dayNames[0] = "Sunday";
+            dayNames[1] = "Monday";
+            dayNames[2] = "Tuesday";
+            dayNames[3] = "Wednesday";
+            dayNames[4] = "Thursday";
+            dayNames[5] = "Friday";
+            dayNames[6] = "Saturday";
 
-            var currentDay = weekday[date.getDay()];
+            var currentDay = dayNames[date.getDay()];
 
             var currentTimeHours = date.getHours();
             currentTimeHours = currentTimeHours < 10 ? "0" + currentTimeHours : currentTimeHours;
             var currentTimeMinutes = date.getMinutes();
             var timeNow = currentTimeHours + "" + currentTimeMinutes;
 
-            var currentDayID = "#" + currentDay; //gets todays weekday and turns it into id
+            var currentDayID = "#" + currentDay; //gets todays dayNames and turns it into id
             $(currentDayID).toggleClass("today"); //this works at hightlighting today
 
             var openTimeSplit = $(currentDayID).children('.opens').text().split(":");

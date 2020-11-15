@@ -1,30 +1,14 @@
-<div data-block="dropdown" class="openings-wrapper">
-    <a class="action" data-trigger="trigger">
-        <span class="text"><?= $block->escapeHtml(__('Openings Hours')) ?></span>
+<div data-block="openings" class="openings-wrapper" data-bind="scope: 'openings_content'">
+    <a class="toggle-slide" data-bind="click:show()">Opening
     </a>
 </div>
-<div class="block block-openings" class="block block-openings" data-role="dropdownDialog" data-mage-init='{
-        "dropdownDialog": {
-            "appendTo": "[data-block=dropdown]",
-            "triggerTarget":"[data-trigger=trigger]",
-            "timeout": 800000,
-            "closeOnMouseLeave": true,
-            "closeOnEscape": true,
-            "autoOpen": false,
-            "triggerClass": "active",
-            "parentClass": "active",
-            "buttons": null
-        }
-     }'>
-    <div id="openings-content-wrapper" data-bind="scope: 'openings_content'">
-        <!-- ko template: getTemplate() -->
-        <!-- /ko -->
-    </div>
-
+<div class="openings-content-wrapper" data-bind="scope: 'openings_content'">
+    <!-- ko template: getTemplate() -->
+    <!-- /ko -->
 
     <script type="text/x-magento-init">
         {
-        "[data-block='dropdown']": {
+        "[data-block='openings']": {
             "Magento_Ui/js/core/app": {
                 "components": {
                     "openings_content": {

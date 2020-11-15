@@ -5,24 +5,23 @@
                 <!-- ko i18n: 'Openings Hours' -->
                 <!-- /ko -->
             </h2>
-            <div data-bind="attr: {class: getOpeningStatus()}">
+            <div>
                 <span data-bind="i18n: 'We Are '">We Are </span>
-                <span data-bind="text: getOpeningStatus()"></span>
+                <!-- <span data-bind="text: getOpeningStatus()"></span> -->
             </div>
 
 
         </div>
         <table class="days">
             <tbody>
-                <!-- ko foreach: dayNames -->
-                <!-- /ko -->
-                <!-- ko if: $index === new Date(getDay())-->
-                <!-- /ko -->
-                <tr data-bind="id : $index" data-bind="style: { color: openStatus() ? 'green' : 'red' }">
-                    <td data-bind="text: dayNames[$index]"></td>
-                    <td data-bind="text: openingtime"></td>
+                <!-- ko foreach: dayNames() -->
+
+                <tr data-bind="attr: { id: $index }, style: { color: $index() === (new Date()).getDay()  ? 'green' : 'red' }">
+                    <td data-bind="text: $data"></td>
 
                 </tr>
+                <!-- /ko -->
+
             </tbody>
         </table>
 
