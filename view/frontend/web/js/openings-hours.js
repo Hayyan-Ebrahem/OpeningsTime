@@ -18,27 +18,24 @@ define([
          */
         initialize: function () {
 
-
            return this._super();
 
-   
-
         },
+ 
 
         show: function () {
-            $(".openings-content-wrapper").stop().slideToggle('slow');
+            // event.preventDefault();
+            $(".openings-content-wrapper").slideToggle('slow');
 
         },
 
         dayNames: function () {
-            var dayNames = new Array(7);
-            dayNames[0] = "Sunday";
+            var dayNames = new Array(5);
             dayNames[1] = "Monday";
             dayNames[2] = "Tuesday";
             dayNames[3] = "Wednesday";
             dayNames[4] = "Thursday";
             dayNames[5] = "Friday";
-            dayNames[6] = "Saturday";
 
 
             return dayNames;

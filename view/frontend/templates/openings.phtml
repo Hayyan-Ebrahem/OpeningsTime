@@ -1,5 +1,9 @@
+<?php
+
+/** @var $block \Hayyan\OpeningsTime\Block\OpeningsTime */
+?>
 <div data-block="openings" class="openings-wrapper" data-bind="scope: 'openings_content'">
-    <a class="toggle-slide" data-bind="click:show()">Opening
+    <a href="#" class="toggle-slide" data-bind="click:show">Opening
     </a>
 </div>
 <div class="openings-content-wrapper" data-bind="scope: 'openings_content'">
@@ -23,5 +27,7 @@
         }
     }
 </script>
-
+    <script>
+        window.getStoreOpeningsTime = '<?php /* @escapeNotVerified */ echo $block->getStoreOpeningsTime(); ?>'
+    </script>
 </div>

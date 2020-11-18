@@ -1,5 +1,3 @@
-<section class="openinghours">
-    <div class="openinghourscontent section">
         <div class="header">
             <h2>
                 <!-- ko i18n: 'Openings Hours' -->
@@ -7,23 +5,30 @@
             </h2>
             <div>
                 <span data-bind="i18n: 'We Are '">We Are </span>
-                <!-- <span data-bind="text: getOpeningStatus()"></span> -->
+                <span data-bind="text: getOpeningStatus()"></span>
             </div>
 
 
         </div>
-        <table class="days">
-            <tbody>
-                <!-- ko foreach: dayNames() -->
 
-                <tr data-bind="attr: { id: $index }, style: { color: $index() === (new Date()).getDay()  ? 'green' : 'red' }">
-                    <td data-bind="text: $data"></td>
+        <div class="block-content">
+            <button type="button" id="btn-openings-close" class="action close" data-action="close"
+                data-bind="attr: { title: $t('Close') }, click: show">
+                <span translate="'Close'" />
+            </button>
+            <table class="days">
+                <tbody>
+                    <!-- ko foreach: dayNames() -->
 
-                </tr>
-                <!-- /ko -->
+                    <tr
+                        data-bind="attr: { id: $index }, style: { color: $index() === (new Date()).getDay()  ? 'green' : 'red' }">
+                        <td data-bind="text: $data"></td>
+                        <td data-bind="text: window.getStoreOpeningsTime"></td>
 
-            </tbody>
-        </table>
 
-    </div>
-</section>
+                    </tr>
+                    <!-- /ko -->
+
+                </tbody>
+            </table>
+        </div>
