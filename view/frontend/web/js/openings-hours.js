@@ -41,6 +41,11 @@ define([
             return dayNames;
 
         },
+        getWeekDays: function () {
+            var dayNames = $.parseJSON(window.getStoreOpeningsTime);
+
+            return dayNames;
+        },
         openStatus: function () {
             return true;
         },

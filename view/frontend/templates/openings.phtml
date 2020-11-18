@@ -28,6 +28,6 @@
     }
 </script>
     <script>
-        window.getStoreOpeningsTime = '<?php /* @escapeNotVerified */ echo $block->getStoreOpeningsTime(); ?>'
+        window.getStoreOpeningsTime =  '<?php /* @escapeNotVerified */ echo json_encode($block->getWeekdays()); ?>'
     </script>
 </div>

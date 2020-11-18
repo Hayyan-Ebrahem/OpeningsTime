@@ -1,7 +1,0 @@
-<?xml version="1.0"?>
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
-    <menu>
-        <add id="Hayyan_openingsTime::greetings" title="Greetings" translate="title" module="Hayyan_openingsTime" parent="Magento_Backend::content" sortOrder="50" dependsOnModule="Hayyan_openingsTime" resource="Hayyan_openingsTime::greetings"/>
-        <add id="Hayyan_openingsTime::greetings_helloworld" title="Hello World" translate="title" module="Hayyan_openingsTime" parent="Hayyan_openingsTime::greetings" sortOrder="10" dependsOnModule="Hayyan_openingsTime" action="exampleadminnewpage/helloworld" resource="Hayyan_openingsTime::greetings"/>
-    </menu>
-</config>
