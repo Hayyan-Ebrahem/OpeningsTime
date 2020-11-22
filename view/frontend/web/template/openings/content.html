@@ -18,12 +18,11 @@
             </button>
             <table class="days">
                 <tbody>
-<!-- ko foreach: { data: getWeekDays(), as: 'day' } -->
+                    <!-- ko foreach: { data: openingstime, as: 'daytime' } -->
                     <tr
                         data-bind="attr: { id: $index }, style: { color: $index() === (new Date()).getDay()  ? 'green' : 'red' }">
-                        <td data-bind="text: day.label"></td>
-
-
+                        <td data-bind="text: daytime.day"></td>
+                        <td data-bind="text: daytime.time"></td>
                     </tr>
                     <!-- /ko -->
 

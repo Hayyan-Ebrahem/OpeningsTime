@@ -16,9 +16,11 @@ define([
         /**
          * @override
          */
-        initialize: function () {
+        initialize: function (config) {
 
-           return this._super();
+           this._super();
+           this.openingstime=config.openingstimedata;
+           console.log(this.openingstime);
 
         },
  
@@ -29,23 +31,12 @@ define([
 
         },
 
-        dayNames: function () {
-            var dayNames = new Array(5);
-            dayNames[1] = "Monday";
-            dayNames[2] = "Tuesday";
-            dayNames[3] = "Wednesday";
-            dayNames[4] = "Thursday";
-            dayNames[5] = "Friday";
 
+        // getWeekDays: function () {
+        //     var dayNames = $.parseJSON(window.getStoreOpeningsTime);
 
-            return dayNames;
-
-        },
-        getWeekDays: function () {
-            var dayNames = $.parseJSON(window.getStoreOpeningsTime);
-
-            return dayNames;
-        },
+        //     return dayNames;
+        // },
         openStatus: function () {
             return true;
         },

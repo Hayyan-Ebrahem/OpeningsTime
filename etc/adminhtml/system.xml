@@ -1,24 +1,66 @@
-<?xml version="1.0"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
     <system>
-        <tab id="mageplaza" translate="label" sortOrder="10">
-            <label>Mageplaza</label>
+        <tab id="A_UNIQUE_ID" translate="label" class="a-custom-css-class-to-style-this-tab" sortOrder="10">
+            <label>A meaningful label</label>
         </tab>
-        <section id="helloworld" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
-            <class>separator-top</class>
-            <label>Hello World</label>
-            <tab>mageplaza</tab>
-            <resource>Mageplaza_HelloWorld::hello_configuration</resource>
-            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
-                <label>General Configuration</label>
-                <field id="enable" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
-                    <label>Module Enable</label>
-                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+
+        <section id="hayyan_store_openingstime" showInDefault="1" showInWebsite="0" showInStore="1" sortOrder="10" translate="label">
+            <label>A meaningful section label</label>
+            <tab>A_UNIQUE_ID</tab>
+            <resource>VENDOR_MODULE::path_to_the_acl_resource</resource>
+            <group id="openings_time_settings" translate="label" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="1">
+                <label>Time Formate</label>
+                <comment>he fields defined in this group.</comment>
+
+
+                <field id="time_format" translate="label" type="select" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Time</label>
+                    <source_model>Magento\Catalog\Model\Config\Source\TimeFormat</source_model>
+                    <!-- <frontend_model>Hayyan\OpeningsTime\Block\adminhtml\Form\Field\Table</frontend_model> -->
+
+                    <!-- <backend_model>Magento\Config\Model\Config\Backend\Serialized\ArraySerialized</backend_model> -->
+
+
+                    <!-- <can_be_empty>1</can_be_empty> -->
                 </field>
-                <field id="display_text" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
-                    <label>Display Text</label>
-                    <comment>This text will display on the frontend.</comment>
+            </group>
+            <group id="store_openings_val" translate="label" sortOrder="15" showInDefault="1" showInWebsite="0" showInStore="1">
+                <label>A meaningful group label</label>
+                <comment>An additional comment helping users to understand the effect when configuring the fields defined in this group.</comment>
+
+                <field id="Sun" translate="label" type="time" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Sunday</label>
+                    <frontend_class>time</frontend_class>
+
                 </field>
+
+                <field id="Mon" translate="label" type="time" sortOrder="25" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Monday</label>
+                </field>
+
+                <field id="Tue" translate="label" type="time" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Tuesday</label>
+                </field>
+
+                <field id="Wed" translate="label" type="time" sortOrder="35" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Wednesday</label>
+                </field>
+
+                <field id="Thu" translate="label" type="time" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Thursday</label>
+                </field>
+
+                <field id="Fri" translate="label" type="time" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Friday</label>
+                </field>
+
+                <field id="Sat" translate="label" type="time" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Saturday</label>
+                </field>
+
+
+
+
             </group>
         </section>
     </system>

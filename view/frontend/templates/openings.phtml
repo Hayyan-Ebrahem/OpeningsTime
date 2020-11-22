@@ -17,17 +17,13 @@
                 "components": {
                     "openings_content": {
                         "component": "Hayyan_OpeningsTime/js/openings-hours",
-                        "config": {
-                            "template": "Hayyan_OpeningsTime/openings/content",
-                            "heading": "Hello World!"
-                        }
+                        "template": "Hayyan_OpeningsTime/openings/content",
+                        "openingstimedata": <?php /* @escapeNotVerified */ echo json_encode($block->getWeekDays()); ?>
                     }
                 }
             }
         }
     }
 </script>
-    <script>
-        window.getStoreOpeningsTime =  '<?php /* @escapeNotVerified */ echo json_encode($block->getWeekdays()); ?>'
-    </script>
+
 </div>
