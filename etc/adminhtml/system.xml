@@ -19,54 +19,53 @@
                 </field>
             </group>
 
-            <group id="store_openings_val" translate="label" sortOrder="15" showInDefault="1" showInWebsite="0" showInStore="1">
+            <group id="store_openings_values" translate="label" sortOrder="15" showInDefault="1" showInWebsite="0" showInStore="1">
                 <label>A meaningful group label</label>
                 <comment>An additional comment helping users to understand the effect when configuring the fields defined in this group.</comment>
-                <field id="Sun" translate="label" type="Hayyan\OpeningsTime\Block\Adminhtml\Form\Field\Time" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="Sun" translate="label" type="time" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Sunday</label>
+                    
+                </field>
+                <field id="_Sun" translate="label" type="time" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1">
 
                 </field>
-                <field id="closingsun" translate="label" type="Hayyan\OpeningsTime\Block\Adminhtml\Form\Field\Time" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
 
-                </field>
-
-                <field id="Mon" translate="label" type="Hayyan\OpeningsTime\Block\Adminhtml\Form\Field\Time" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="Mon" translate="label" type="time" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Monday</label>
                 </field>
-                <field id="closingmon" translate="label" type="Hayyan\OpeningsTime\Block\Adminhtml\Form\Field\Time" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="_Mon" translate="label" type="time" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
 
                 </field>
 
-                <field id="Tue" translate="label" type="Hayyan\OpeningsTime\Block\Adminhtml\Form\Field\Time" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="Tue" translate="label" type="time" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Tuesday</label>
                 </field>
-                <field id="closingtue" translate="label" type="Hayyan\OpeningsTime\Block\Adminhtml\Form\Field\Time" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="_Tue" translate="label" type="time" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
 
                 </field>
 
-                <field id="Wed" translate="label" type="Hayyan\OpeningsTime\Block\Adminhtml\Form\Field\Time" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="Wed" translate="label" type="time" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Wednesday</label>
                 </field>
-                <field id="closingwed" translate="label" type="Hayyan\OpeningsTime\Block\Adminhtml\Form\Field\Time" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="_Wed" translate="label" type="time" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
 
                 </field>
-
-                <field id="Thu" translate="label" type="Hayyan\OpeningsTime\Block\Adminhtml\Form\Field\Time" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="Thu" translate="label" type="time" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Thursday</label>
                 </field>
-                <field id="closingthu" translate="label" type="Hayyan\OpeningsTime\Block\Adminhtml\Form\Field\Time" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="_Thu" translate="label" type="time" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
                 </field>
 
-                <field id="Fri" translate="label" type="Hayyan\OpeningsTime\Block\Adminhtml\Form\Field\Time" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="Fri" translate="label" type="time" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Friday</label>
                 </field>
-                <field id="closingfri" translate="label" type="Hayyan\OpeningsTime\Block\Adminhtml\Form\Field\Time" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="_Fri" translate="label" type="time" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
                 </field>
 
-                <field id="Sat" translate="label" type="Hayyan\OpeningsTime\Block\Adminhtml\Form\Field\Time" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="Sat" translate="label" type="time" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Saturday</label>
                 </field>
-                <field id="closingsat" translate="label" type="Hayyan\OpeningsTime\Block\Adminhtml\Form\Field\Time" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="_Sat" translate="label" type="time" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
                 </field>
 
 

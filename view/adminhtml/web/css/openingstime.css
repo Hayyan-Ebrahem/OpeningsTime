@@ -1,3 +1,6 @@
 .accordion .form-inline .config .value{
     display: flex;
 }
+.seconds{
+    display: none;
+}

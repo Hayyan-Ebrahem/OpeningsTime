@@ -7,7 +7,7 @@ class OpeningsTime extends \Magento\Framework\View\Element\Template
 {
     // protected $_scopeConfig;
     protected $_scopeconfig;
-    protected $_localeLists;
+    // protected $_localeLists;
 
 
     public function __construct(
@@ -25,12 +25,19 @@ class OpeningsTime extends \Magento\Framework\View\Element\Template
     public function getWeekdays()
     {
         $weekdays = [];
-        $days = $this->_scopeconfig->getValue('hayyan_store_openingstime/store_openings_val');
+        $days = $this->_scopeconfig->getValue('hayyan_store_openingstime/store_openings_values');
         // $magentoweekdays = $this->_localeLists->getOptionWeekdays(true, true);
+        $pre = "_";
 
         foreach($days as $day => $time){
-            array_push($weekdays,["day" => $day, "time" => $time]);
+            $weekdays[$day] = [$time];
 
+            if (substr( $day, 0, strlen($pre) ) === $pre)
+            {
+                $day = substr($day, strlen($pre));
+                array_push($weekdays[$day],$time);
+            }
+            // $weekdays[$day] = $time;
         }
 
         return $weekdays;

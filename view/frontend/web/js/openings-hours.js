@@ -18,9 +18,10 @@ define([
          */
         initialize: function (config) {
 
-           this._super();
            this.openingstime=config.openingstimedata;
            console.log(this.openingstime);
+           this._super();
+
 
         },
  
