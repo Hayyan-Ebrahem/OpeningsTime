@@ -2,9 +2,10 @@ define([
     'uiComponent',
     'underscore',
     'ko',
+    'moment',
     'jquery'
 
-], function (Component, ko, _,$) {
+], function (Component, ko, _,moment,$) {
     'use strict';
 
     return Component.extend({
@@ -20,7 +21,7 @@ define([
 
            this.openingstime=config.openingstimedata;
            console.log(this.openingstime);
-           this._super();
+           return this._super();
 
 
         },
@@ -38,52 +39,17 @@ define([
 
         //     return dayNames;
         // },
-        openStatus: function () {
-            return true;
-        },
+        getOpeningStatus: function (time) {
+            console.log(time);
+            var closingTime = moment(time,"HH:mm:ss");
+            var now = moment().hour();
 
-        getOpeningStatus: function () {
-            var date = new Date();
-            var dayNames = [];
-            dayNames[0] = "Sunday";
-            dayNames[1] = "Monday";
-            dayNames[2] = "Tuesday";
-            dayNames[3] = "Wednesday";
-            dayNames[4] = "Thursday";
-            dayNames[5] = "Friday";
-            dayNames[6] = "Saturday";
-
-            var currentDay = dayNames[date.getDay()];
-
-            var currentTimeHours = date.getHours();
-            currentTimeHours = currentTimeHours < 10 ? "0" + currentTimeHours : currentTimeHours;
-            var currentTimeMinutes = date.getMinutes();
-            var timeNow = currentTimeHours + "" + currentTimeMinutes;
-
-            var currentDayID = "#" + currentDay; //gets todays dayNames and turns it into id
-            $(currentDayID).toggleClass("today"); //this works at hightlighting today
-
-            var openTimeSplit = $(currentDayID).children('.opens').text().split(":");
-
-            var openTimeHours = openTimeSplit[0];
-            openTimeHours = openTimeHours < 10 ? "0" + openTimeHours : openTimeHours;
-
-            var openTimeMinutes = openTimeSplit[1];
-            var openTimex = openTimeSplit[0] + openTimeSplit[1];
-
-            var closeTimeSplit = $(currentDayID).children('.closes').text().split(":");
-
-            var closeTimeHours = closeTimeSplit[0];
-            closeTimeHours = closeTimeHours < 10 ? "0" + closeTimeHours : closeTimeHours;
-
-            var closeTimeMinutes = closeTimeSplit[1];
-            var closeTimex = closeTimeSplit[0] + closeTimeSplit[1];
-
-            if (timeNow >= openTimex && timeNow <= closeTimex) {
-                return 'open';
-            } else {
-                return 'closed';
+            if(now < closingTime){
+                return true;
             }
-        }
+            console.log(closingTime);
+            return false;
+            
+        },
     });
 });

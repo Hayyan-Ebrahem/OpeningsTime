@@ -4,3 +4,11 @@
 .seconds{
     display: none;
 }
+
+.open{
+    color: green;
+}
+
+.close{
+    color: red;
+}

@@ -1,12 +1,12 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
     <system>
-        <tab id="A_UNIQUE_ID" translate="label" class="a-custom-css-class-to-style-this-tab" sortOrder="10">
+        <tab id="Store_Openings_Time_Config" translate="label" class="a-custom-css-class-to-style-this-tab" sortOrder="10">
             <label>A meaningful label</label>
         </tab>
 
-        <section id="hayyan_store_openingstime" showInDefault="1" showInWebsite="0" showInStore="1" sortOrder="10" translate="label">
+        <section id="hayyan_store_openingstime_general" showInDefault="1" showInWebsite="0" showInStore="1" sortOrder="10" translate="label">
             <label>A meaningful section label</label>
-            <tab>A_UNIQUE_ID</tab>
+            <tab>Store_Openings_Time_Config</tab>
             <resource>VENDOR_MODULE::path_to_the_acl_resource</resource>
             <group id="openings_time_settings" translate="label" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="1">
                 <label>Time Formate</label>
@@ -20,7 +20,7 @@
             </group>
 
             <group id="store_openings_values" translate="label" sortOrder="15" showInDefault="1" showInWebsite="0" showInStore="1">
-                <label>A meaningful group label</label>
+                <label>Store Working Days And Time</label>
                 <comment>An additional comment helping users to understand the effect when configuring the fields defined in this group.</comment>
                 <field id="Sun" translate="label" type="time" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Sunday</label>

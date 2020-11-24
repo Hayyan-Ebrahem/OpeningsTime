@@ -25,22 +25,33 @@ class OpeningsTime extends \Magento\Framework\View\Element\Template
     public function getWeekdays()
     {
         $weekdays = [];
-        $days = $this->_scopeconfig->getValue('hayyan_store_openingstime/store_openings_values');
+        $days = $this->_scopeconfig->getValue('hayyan_store_openingstime_general/store_openings_values');
         // $magentoweekdays = $this->_localeLists->getOptionWeekdays(true, true);
         $pre = "_";
 
         foreach($days as $day => $time){
             $weekdays[$day] = [$time];
 
-            if (substr( $day, 0, strlen($pre) ) === $pre)
+            if (substr( $day, 0, strlen($pre) ) === $pre )
             {
+                unset($weekdays[$day]);
+
                 $day = substr($day, strlen($pre));
                 array_push($weekdays[$day],$time);
-            }
-            // $weekdays[$day] = $time;
-        }
 
-        return $weekdays;
+            }
+        }
+        foreach($weekdays as $day => $time){
+            
+            $data[] = ['day' => $day,'time' => [
+                    'openingtime' => str_replace("," , ":" ,$time[0]),
+                    'closingtime' => str_replace("," , ":" ,$time[1])]
+                ];
+
+        }
+        
+
+        return $data;
     }  
 }
 ?>
