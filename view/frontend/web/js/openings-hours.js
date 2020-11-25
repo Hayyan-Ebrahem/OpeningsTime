@@ -20,7 +20,6 @@ define([
         initialize: function (config) {
 
            this.openingstime=config.openingstimedata;
-           console.log(this.openingstime);
            return this._super();
 
 
@@ -39,15 +38,16 @@ define([
 
         //     return dayNames;
         // },
-        getOpeningStatus: function (time) {
-            console.log(time);
-            var closingTime = moment(time,"HH:mm:ss");
-            var now = moment().hour();
+        getOpeningStatus: function (openingstime, closingTime) {
+;
+            var now = moment((new Date()),'hh:mm');
+            var opentime = moment(openingstime, 'hh:mm');
+            var clostime = moment(closingTime, 'hh:mm');
 
-            if(now < closingTime){
+            if (moment(now).isBetween(opentime, clostime)
+            ){
                 return true;
             }
-            console.log(closingTime);
             return false;
             
         },
