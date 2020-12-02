@@ -18,7 +18,8 @@ use Magento\Framework\View\Helper\SecureHtmlRenderer;
  */
 class Time extends \Magento\Framework\Data\Form\Element\AbstractElement
 {
-    protected $_scopeconfig;
+    protected $helperData;
+
 
     /**
      * @var SecureHtmlRenderer
@@ -41,7 +42,7 @@ class Time extends \Magento\Framework\Data\Form\Element\AbstractElement
         Escaper $escaper,
         $data = [],
         ?SecureHtmlRenderer $secureRenderer = null,
-        \Magento\Framework\App\Config\ScopeConfigInterface $scopeconfig
+        \Hayyan\OpeningsTime\Helper\Data $helperData
 
     ) {
 
@@ -49,7 +50,7 @@ class Time extends \Magento\Framework\Data\Form\Element\AbstractElement
         parent::__construct($factoryElement, $factoryCollection, $escaper, $data, $secureRenderer);
         $this->setType('time');
         $this->secureRenderer = $secureRenderer;
-        $this->_scopeconfig = $scopeconfig;
+        $this->helperData = $helperData;
     }
 
     /**
@@ -66,8 +67,7 @@ class Time extends \Magento\Framework\Data\Form\Element\AbstractElement
 
     public function getTimeConfig()
     {
-        $timeFormat = $this->_scopeconfig->getValue('hayyan_store_openingstime_general/openings_time_settings/time_format');
-        return $timeFormat;
+        return $this->helperData->getTimeConfig();
     }
 
     /**
@@ -83,15 +83,12 @@ class Time extends \Magento\Framework\Data\Form\Element\AbstractElement
 
         $valueHrs = 0;
         $valueMin = 0;
-        // $valueSec = 0;
-        // $valueFormat = "AM";
 
         if ($value = $this->getValue()) {
             $values = explode(',', $value);
             if (is_array($values) && count($values) == 3) {
                 $valueHrs = $values[0];
                 $valueMin = $values[1];
-                // $valueSec = $values[2];
             }
         }
 
@@ -125,18 +122,6 @@ class Time extends \Magento\Framework\Data\Form\Element\AbstractElement
                 $i ? 'selected="selected"' : '') . '>' . $hour . '</option>';
         }
         $html .= '</select>' . "\n";
-
-        // $html .= '<span class="time-separator">:&nbsp;</span><select name="'
-        //     . $this->getName() . '" '
-        //     . $this->serialize($this->getHtmlAttributes())
-        //     . $this->_getUiId('second') . '>' . "\n";
-        // for ($i = 0; $i < 60; $i++) {
-        //     $hour = str_pad($i, 2, '0', STR_PAD_LEFT);
-        //     $html .= '<option value="' . $hour . '" ' . ($valueSec ==
-        //         $i ? 'selected="selected"' : '') . '>' . $hour . '</option>';
-        // }
-        // $html .= '</select>' . "\n";
-
 
         if ($timeFormat == 12) {
 
