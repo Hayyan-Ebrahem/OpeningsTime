@@ -39,13 +39,12 @@ define([
         //     return dayNames;
         // },
         getOpeningStatus: function (openingstime, closingTime) {
-;
-            var now = moment((new Date()),'hh:mm');
-            var opentime = moment(openingstime, 'hh:mm');
-            var clostime = moment(closingTime, 'hh:mm');
 
-            if (moment(now).isBetween(opentime, clostime)
-            ){
+            var now = moment((new Date()),'HH:mm');
+            var opentime = moment(openingstime, 'HH:mm');
+            var clostime = moment(closingTime, 'HH:mm');
+
+            if (moment(now).isBetween(opentime, clostime)){
                 return true;
             }
             return false;
