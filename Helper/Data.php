@@ -6,8 +6,6 @@ use Magento\Framework\App\Helper\AbstractHelper;
 
 class Data extends AbstractHelper
 {
-    protected $configwriter;
-
     protected $_scopeconfig;
 
     /**
@@ -19,7 +17,6 @@ class Data extends AbstractHelper
         \Magento\Framework\App\Helper\Context $context,
         \Magento\Framework\App\Http\Context $httpContext,
         \Magento\Framework\App\Config\ScopeConfigInterface $scopeconfig
-
 
     ) {
         $this->_scopeconfig = $scopeconfig;
