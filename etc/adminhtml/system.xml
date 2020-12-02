@@ -24,48 +24,71 @@
                 <comment>An additional comment helping users to understand the effect when configuring the fields defined in this group.</comment>
                 <field id="Sun" translate="label" type="Hayyan\OpeningsTime\Block\Adminhtml\Form\Element\Time" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Sunday</label>
-                    
+                    <backend_model>Hayyan\OpeningsTime\Model\System\Config\Backend\SaveFields</backend_model>
+
                 </field>
                 <field id="_Sun" translate="label" type="Hayyan\OpeningsTime\Block\Adminhtml\Form\Element\Time" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <backend_model>Hayyan\OpeningsTime\Model\System\Config\Backend\SaveFields</backend_model>
 
                 </field>
 
                 <field id="Mon" translate="label" type="Hayyan\OpeningsTime\Block\Adminhtml\Form\Element\Time" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Monday</label>
+                    <backend_model>Hayyan\OpeningsTime\Model\System\Config\Backend\SaveFields</backend_model>
+
                 </field>
                 <field id="_Mon" translate="label" type="Hayyan\OpeningsTime\Block\Adminhtml\Form\Element\Time" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <backend_model>Hayyan\OpeningsTime\Model\System\Config\Backend\SaveFields</backend_model>
 
                 </field>
 
                 <field id="Tue" translate="label" type="Hayyan\OpeningsTime\Block\Adminhtml\Form\Element\Time" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Tuesday</label>
+                    <backend_model>Hayyan\OpeningsTime\Model\System\Config\Backend\SaveFields</backend_model>
+
                 </field>
                 <field id="_Tue" translate="label" type="Hayyan\OpeningsTime\Block\Adminhtml\Form\Element\Time" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <backend_model>Hayyan\OpeningsTime\Model\System\Config\Backend\SaveFields</backend_model>
 
                 </field>
 
                 <field id="Wed" translate="label" type="Hayyan\OpeningsTime\Block\Adminhtml\Form\Element\Time" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Wednesday</label>
+                    <backend_model>Hayyan\OpeningsTime\Model\System\Config\Backend\SaveFields</backend_model>
+
                 </field>
                 <field id="_Wed" translate="label" type="Hayyan\OpeningsTime\Block\Adminhtml\Form\Element\Time" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <backend_model>Hayyan\OpeningsTime\Model\System\Config\Backend\SaveFields</backend_model>
 
                 </field>
                 <field id="Thu" translate="label" type="Hayyan\OpeningsTime\Block\Adminhtml\Form\Element\Time" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Thursday</label>
+                    <backend_model>Hayyan\OpeningsTime\Model\System\Config\Backend\SaveFields</backend_model>
+
                 </field>
                 <field id="_Thu" translate="label" type="Hayyan\OpeningsTime\Block\Adminhtml\Form\Element\Time" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <backend_model>Hayyan\OpeningsTime\Model\System\Config\Backend\SaveFields</backend_model>
+
                 </field>
 
                 <field id="Fri" translate="label" type="Hayyan\OpeningsTime\Block\Adminhtml\Form\Element\Time" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Friday</label>
+                    <backend_model>Hayyan\OpeningsTime\Model\System\Config\Backend\SaveFields</backend_model>
+
                 </field>
                 <field id="_Fri" translate="label" type="Hayyan\OpeningsTime\Block\Adminhtml\Form\Element\Time" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <backend_model>Hayyan\OpeningsTime\Model\System\Config\Backend\SaveFields</backend_model>
+
                 </field>
 
                 <field id="Sat" translate="label" type="Hayyan\OpeningsTime\Block\Adminhtml\Form\Element\Time" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Saturday</label>
+                    <backend_model>Hayyan\OpeningsTime\Model\System\Config\Backend\SaveFields</backend_model>
+
                 </field>
                 <field id="_Sat" translate="label" type="Hayyan\OpeningsTime\Block\Adminhtml\Form\Element\Time" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <backend_model>Hayyan\OpeningsTime\Model\System\Config\Backend\SaveFields</backend_model>
+
                 </field>
 
 
