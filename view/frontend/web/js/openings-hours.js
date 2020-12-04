@@ -20,6 +20,7 @@ define([
         initialize: function (config) {
 
            this.openingstime=config.openingstimedata;
+           console.log(this.openingstime);
            return this._super();
 
 

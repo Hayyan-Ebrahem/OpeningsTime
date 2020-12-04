@@ -45,6 +45,7 @@ class Time extends \Magento\Framework\Data\Form\Element\AbstractElement
         \Hayyan\OpeningsTime\Helper\Data $helperData
 
     ) {
+        $this->helperData = $helperData;
 
         $secureRenderer = $secureRenderer ?? ObjectManager::getInstance()->get(SecureHtmlRenderer::class);
         parent::__construct($factoryElement, $factoryCollection, $escaper, $data, $secureRenderer);
@@ -83,17 +84,19 @@ class Time extends \Magento\Framework\Data\Form\Element\AbstractElement
 
         $valueHrs = 0;
         $valueMin = 0;
+        $valueSec = 0;
 
         if ($value = $this->getValue()) {
             $values = explode(',', $value);
             if (is_array($values) && count($values) == 3) {
                 $valueHrs = $values[0];
                 $valueMin = $values[1];
+                $valueSec = $values[2];
             }
         }
 
         $html = '<input type="hidden" id="' . $this->getHtmlId() . '" ' . $this->_getUiId() . '/>';
-        $html .= '<select name="' . $this->getName() . '" '
+        $html .= '<select class ="hour" name="' . $this->getName() . '" '
             . $this->serialize($this->getHtmlAttributes())
             . $this->_getUiId('hour') . '>' . "\n";
         if ($timeFormat == 12) {
@@ -123,16 +126,26 @@ class Time extends \Magento\Framework\Data\Form\Element\AbstractElement
         }
         $html .= '</select>' . "\n";
 
-        if ($timeFormat == 12) {
-
-            $html .= '<span>&nbsp;</span><select name="Time">';
-            $arr = ['AM', 'PM'];
-            foreach ($arr as $value) {
-                $html .= '<option value="' . $value . '" '  . '>' . $value . '</option>';
-            }
-            
+        $html .= '<span class="time-separator">&nbsp;</span><select name="'
+            . $this->getName() . '" '
+            . $this->serialize($this->getHtmlAttributes())
+            . $this->_getUiId('second') . '>' . "\n";
+        for ($i = 0; $i < 60; $i++) {
+            $hour = str_pad($i, 2, '0', STR_PAD_LEFT);
+            $html .= '<option value="' . $hour . '" ' . ($valueSec ==
+                $i ? 'selected="selected"' : '') . '>' . $hour . '</option>';
         }
-        
+        $html .= '</select>' . "\n";
+
+        // if ($timeFormat == 12) {
+
+        //     $html .= '<span>&nbsp;</span><select name="Time">';
+        //     $arr = ['AM', 'PM'];
+        //     foreach ($arr as $value) {
+        //         $html .= '<option value="' . $value . '" '  . '>' . $value . '</option>';
+        //     }
+        // }
+
 
         $html .= '</select>' . "\n";
         $html .= $this->getAfterElementHtml();
