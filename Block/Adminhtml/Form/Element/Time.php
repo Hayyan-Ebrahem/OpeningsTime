@@ -126,7 +126,7 @@ class Time extends \Magento\Framework\Data\Form\Element\AbstractElement
         }
         $html .= '</select>' . "\n";
 
-        $html .= '<span class="time-separator">&nbsp;</span><select name="'
+        $html .= '<span class="time-separator">&nbsp;</span><select class="seconds" name="'
             . $this->getName() . '" '
             . $this->serialize($this->getHtmlAttributes())
             . $this->_getUiId('second') . '>' . "\n";
@@ -135,26 +135,29 @@ class Time extends \Magento\Framework\Data\Form\Element\AbstractElement
             $html .= '<option value="' . $hour . '" ' . ($valueSec ==
                 $i ? 'selected="selected"' : '') . '>' . $hour . '</option>';
         }
-        $html .= '</select>' . "\n";
+        // $html .= '</select>' . "\n";
 
         // if ($timeFormat == 12) {
 
         //     $html .= '<span>&nbsp;</span><select name="Time">';
         //     $arr = ['AM', 'PM'];
         //     foreach ($arr as $value) {
+        //         $this->setValue($value);
         //         $html .= '<option value="' . $value . '" '  . '>' . $value . '</option>';
         //     }
         // }
 
 
         $html .= '</select>' . "\n";
+        $html .= '</select>' . "\n";
+
         $html .= $this->getAfterElementHtml();
         $html .= $this->secureRenderer->renderTag(
             'style',
             [],
             <<<style
                 .select80wide {
-                    width: 80px;
+                    width: 40px;
                 }
 style,
             false

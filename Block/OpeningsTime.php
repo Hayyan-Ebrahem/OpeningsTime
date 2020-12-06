@@ -17,16 +17,11 @@ class OpeningsTime extends \Magento\Framework\View\Element\Template
     }
 
 
-    public function getDaysConfig()
-    {
-        return $this->helperData->getDaysConfig();
-
-    }
-
     public function getWeekdays()
     {
         $weekdays = [];
-        $days = $this->getDaysConfig();
+        $days = $this->helperData->getDaysConfig();
+        
         $pre = "_";
 
         foreach ($days as $day => $time) {

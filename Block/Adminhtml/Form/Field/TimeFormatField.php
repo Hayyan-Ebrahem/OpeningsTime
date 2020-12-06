@@ -13,8 +13,8 @@ class TimeFormatField extends \Magento\Config\Block\System\Config\Form\Field {
                 resolveTime = function(){
                     $("tbody:last tr td.value .hour option:selected").each(
                         function(){
-                                $(this).text(14);
-                                $(this).val(14);
+                                $(this).text(08);
+                                $(this).val("08");
 
                             
                         }

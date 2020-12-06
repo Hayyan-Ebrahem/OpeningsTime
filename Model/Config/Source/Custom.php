@@ -2,8 +2,9 @@
 
 namespace Hayyan\OpeningsTime\Model\Config\Source;
 
+
 class Custom implements \Magento\Framework\Option\ArrayInterface
-{ 
+{
     /**
      * Return array of options as value-label pairs, eg. value => label
      *
@@ -16,4 +17,7 @@ class Custom implements \Magento\Framework\Option\ArrayInterface
             ['value' => 'PM', 'label' => __('PM')]
         ];
     }
+
+
+
 }

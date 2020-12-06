@@ -23,152 +23,176 @@
                 <label>Store Working Days And Time</label>
                 <comment>An additional comment helping users to understand the effect when configuring the fields defined in this group.</comment>
               
-                <field id="Sun" translate="label" type="Hayyan\OpeningsTime\Block\Adminhtml\Form\Element\Time" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="sun_open" translate="label" type="Hayyan\OpeningsTime\Block\Adminhtml\Form\Element\Time" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Sunday</label>
                 </field>
-                <field id="SunAmPm" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="sun_open_ampm" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
                     <depends>
                         <field id="hayyan_store_openingstime_general/openings_time_settings/time_format">12h</field>
                     </depends>
                     <source_model>Hayyan\OpeningsTime\Model\Config\Source\Custom</source_model>
+                    <!-- <frontend_model>Hayyan\OpeningsTime\Block\Adminhtml\Form\Field\AmPmCustomFrontend</frontend_model> -->
+
                 </field>
-                <field id="_Sun" translate="label" type="Hayyan\OpeningsTime\Block\Adminhtml\Form\Element\Time" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="sun_close" translate="label" type="Hayyan\OpeningsTime\Block\Adminhtml\Form\Element\Time" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
                 </field>
-                <field id="_SunAmPm" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="sun_close_ampm" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
                     <depends>
                         <field id="hayyan_store_openingstime_general/openings_time_settings/time_format">12h</field>
                     </depends>
                     <source_model>Hayyan\OpeningsTime\Model\Config\Source\Custom</source_model>
+                    <!-- <frontend_model>Hayyan\OpeningsTime\Block\Adminhtml\Form\Field\AmPmCustomFrontend</frontend_model> -->
+
                 </field>
 
-                <field id="Mon" translate="label" type="Hayyan\OpeningsTime\Block\Adminhtml\Form\Element\Time" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="mon_open" translate="label" type="Hayyan\OpeningsTime\Block\Adminhtml\Form\Element\Time" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Monday</label>
                 </field>
-                <field id="MonAmPm" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="mon_open_ampm" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
                     <depends>
                         <field id="hayyan_store_openingstime_general/openings_time_settings/time_format">12h</field>
                     </depends>
                     <source_model>Hayyan\OpeningsTime\Model\Config\Source\Custom</source_model>
+                    <!-- <frontend_model>Hayyan\OpeningsTime\Block\Adminhtml\Form\Field\AmPmCustomFrontend</frontend_model> -->
 
                 </field>
-                <field id="_Mon" translate="label" type="Hayyan\OpeningsTime\Block\Adminhtml\Form\Element\Time" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="mon_close" translate="label" type="Hayyan\OpeningsTime\Block\Adminhtml\Form\Element\Time" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
 
                 </field>
 
-                <field id="_MonAmPm" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="mon_close_ampm" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
                     <depends>
                         <field id="hayyan_store_openingstime_general/openings_time_settings/time_format">12h</field>
                     </depends>
                     <source_model>Hayyan\OpeningsTime\Model\Config\Source\Custom</source_model>
+                    <!-- <frontend_model>Hayyan\OpeningsTime\Block\Adminhtml\Form\Field\AmPmCustomFrontend</frontend_model> -->
 
                 </field>
 
-                <field id="Tue" translate="label" type="Hayyan\OpeningsTime\Block\Adminhtml\Form\Element\Time" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="tue_open" translate="label" type="Hayyan\OpeningsTime\Block\Adminhtml\Form\Element\Time" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Tuesday</label>
 
                 </field>
-                <field id="TueAmPm" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="tue_open_ampm" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
                     <depends>
                         <field id="hayyan_store_openingstime_general/openings_time_settings/time_format">12h</field>
                     </depends>
                     <source_model>Hayyan\OpeningsTime\Model\Config\Source\Custom</source_model>
+                    <!-- <frontend_model>Hayyan\OpeningsTime\Block\Adminhtml\Form\Field\AmPmCustomFrontend</frontend_model> -->
 
                 </field>
-                <field id="_Tue" translate="label" type="Hayyan\OpeningsTime\Block\Adminhtml\Form\Element\Time" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="tue_close" translate="label" type="Hayyan\OpeningsTime\Block\Adminhtml\Form\Element\Time" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
 
                 </field>
 
-                <field id="_TueAmPm" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="tue_close_ampm" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
                     <depends>
                         <field id="hayyan_store_openingstime_general/openings_time_settings/time_format">12h</field>
                     </depends>
                     <source_model>Hayyan\OpeningsTime\Model\Config\Source\Custom</source_model>
+                    <!-- <frontend_model>Hayyan\OpeningsTime\Block\Adminhtml\Form\Field\AmPmCustomFrontend</frontend_model> -->
 
                 </field>
 
-                <field id="Wed" translate="label" type="Hayyan\OpeningsTime\Block\Adminhtml\Form\Element\Time" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="wed_open" translate="label" type="Hayyan\OpeningsTime\Block\Adminhtml\Form\Element\Time" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Wednesday</label>
 
                 </field>
-                <field id="WedAmPm" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="wed_open_ampm" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
                     <depends>
                         <field id="hayyan_store_openingstime_general/openings_time_settings/time_format">12h</field>
                     </depends>
                     <source_model>Hayyan\OpeningsTime\Model\Config\Source\Custom</source_model>
+                    <!-- <frontend_model>Hayyan\OpeningsTime\Block\Adminhtml\Form\Field\AmPmCustomFrontend</frontend_model> -->
+
 
                 </field>
-                <field id="_Wed" translate="label" type="Hayyan\OpeningsTime\Block\Adminhtml\Form\Element\Time" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="wed_close" translate="label" type="Hayyan\OpeningsTime\Block\Adminhtml\Form\Element\Time" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
 
                 </field>
 
-                <field id="_WedAmPm" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="wed_close_ampm" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
                     <depends>
                         <field id="hayyan_store_openingstime_general/openings_time_settings/time_format">12h</field>
                     </depends>
                     <source_model>Hayyan\OpeningsTime\Model\Config\Source\Custom</source_model>
+                    <!-- <frontend_model>Hayyan\OpeningsTime\Block\Adminhtml\Form\Field\AmPmCustomFrontend</frontend_model> -->
+
 
                 </field>
-                <field id="Thu" translate="label" type="Hayyan\OpeningsTime\Block\Adminhtml\Form\Element\Time" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="thu_open" translate="label" type="Hayyan\OpeningsTime\Block\Adminhtml\Form\Element\Time" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Thursday</label>
 
                 </field>
-                <field id="ThuAmPm" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="thu_open_ampm" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
                     <depends>
                         <field id="hayyan_store_openingstime_general/openings_time_settings/time_format">12h</field>
                     </depends>
                     <source_model>Hayyan\OpeningsTime\Model\Config\Source\Custom</source_model>
+                    <!-- <frontend_model>Hayyan\OpeningsTime\Block\Adminhtml\Form\Field\AmPmCustomFrontend</frontend_model> -->
+
 
                 </field>
-                <field id="_Thu" translate="label" type="Hayyan\OpeningsTime\Block\Adminhtml\Form\Element\Time" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="thu_close" translate="label" type="Hayyan\OpeningsTime\Block\Adminhtml\Form\Element\Time" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
 
                 </field>
 
-                <field id="_ThuAmPm" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="thu_close_ampm" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
                     <depends>
                         <field id="hayyan_store_openingstime_general/openings_time_settings/time_format">12h</field>
                     </depends>
                     <source_model>Hayyan\OpeningsTime\Model\Config\Source\Custom</source_model>
+                    <!-- <frontend_model>Hayyan\OpeningsTime\Block\Adminhtml\Form\Field\AmPmCustomFrontend</frontend_model> -->
+
 
                 </field>
 
 
-                <field id="Fri" translate="label" type="Hayyan\OpeningsTime\Block\Adminhtml\Form\Element\Time" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="fri_open" translate="label" type="Hayyan\OpeningsTime\Block\Adminhtml\Form\Element\Time" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Friday</label>
 
                 </field>
-                <field id="FriAmPm" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="fri_open_ampm" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
                     <depends>
                         <field id="hayyan_store_openingstime_general/openings_time_settings/time_format">12h</field>
                     </depends>
                     <source_model>Hayyan\OpeningsTime\Model\Config\Source\Custom</source_model>
+                    <!-- <frontend_model>Hayyan\OpeningsTime\Block\Adminhtml\Form\Field\AmPmCustomFrontend</frontend_model> -->
+
                 </field>
-                <field id="_Fri" translate="label" type="Hayyan\OpeningsTime\Block\Adminhtml\Form\Element\Time" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="fri_close" translate="label" type="Hayyan\OpeningsTime\Block\Adminhtml\Form\Element\Time" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
                 </field>
 
-                <field id="_FriAmPm" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="fri_close_ampm" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
                     <depends>
                         <field id="hayyan_store_openingstime_general/openings_time_settings/time_format">12h</field>
                     </depends>
                     <source_model>Hayyan\OpeningsTime\Model\Config\Source\Custom</source_model>
+                    <!-- <frontend_model>Hayyan\OpeningsTime\Block\Adminhtml\Form\Field\AmPmCustomFrontend</frontend_model> -->
+
                 </field>
 
-                <field id="Sat" translate="label" type="Hayyan\OpeningsTime\Block\Adminhtml\Form\Element\Time" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="sat_open" translate="label" type="Hayyan\OpeningsTime\Block\Adminhtml\Form\Element\Time" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Saturday</label>
                 </field>
-                <field id="SatAmPm" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="sat_open_ampm" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
                     <depends>
                         <field id="hayyan_store_openingstime_general/openings_time_settings/time_format">12h</field>
                     </depends>
                     <source_model>Hayyan\OpeningsTime\Model\Config\Source\Custom</source_model>
+                    <!-- <frontend_model>Hayyan\OpeningsTime\Block\Adminhtml\Form\Field\AmPmCustomFrontend</frontend_model> -->
+
                 </field>
-                <field id="_Sat" translate="label" type="Hayyan\OpeningsTime\Block\Adminhtml\Form\Element\Time" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="sat_close" translate="label" type="Hayyan\OpeningsTime\Block\Adminhtml\Form\Element\Time" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
                 </field>
 
-                <field id="_SatAmPm" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="sat_close_ampm" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
                     <depends>
                         <field id="hayyan_store_openingstime_general/openings_time_settings/time_format">12h</field>
                     </depends>
                     <source_model>Hayyan\OpeningsTime\Model\Config\Source\Custom</source_model>
+                    <!-- <frontend_model>Hayyan\OpeningsTime\Block\Adminhtml\Form\Field\AmPmCustomFrontend</frontend_model> -->
+
                 </field>
 
             </group>
