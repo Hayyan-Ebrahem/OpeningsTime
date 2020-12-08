@@ -1,38 +1,49 @@
 <?php
 
-namespace Hayyan\OpeningsTime\Block;
+namespace MageGro\OpeningsTime\Block;
 
 
 class OpeningsTime extends \Magento\Framework\View\Element\Template
 {
     protected $helperData;
+    protected $_localeLists;
+
 
     public function __construct(
         \Magento\Backend\Block\Template\Context $context,
-        \Hayyan\OpeningsTime\Helper\Data $helperData,
+        \MageGro\OpeningsTime\Helper\Data $helperData,
+        \Magento\Framework\Locale\ListsInterface $localeLists,
         array $data = []
     ) {
         $this->helperData = $helperData;
+        $this->_localeLists = $localeLists;
+
         parent::__construct($context, $data);
     }
 
+    /**
+     * @return array
+     */
+    public function getLocaleWeekdays()
+    {
+        return $this->_localeLists->getOptionWeekdays();
+    }
 
     public function getWeekdays()
     {
+        $localeweekdays = array_column($this->getLocaleWeekdays(), 'label');
         $weekdays = [];
         $days = $this->helperData->getDaysConfig();
         
-        $pre = "_";
-
         foreach ($days as $day => $time) {
-            $weekdays[$day] = [$time];
+            foreach($localeweekdays as  $value)
+            {
+                if (strtok($day, '_') === $value){
+                    $weekdays[$value][] = $time;
+                }
 
-            if (substr($day, 0, strlen($pre)) === $pre) {
-                unset($weekdays[$day]);
-
-                $day = substr($day, strlen($pre));
-                array_push($weekdays[$day], $time);
             }
+          
         }
         foreach ($weekdays as $day => $time) {
 
@@ -42,6 +53,6 @@ class OpeningsTime extends \Magento\Framework\View\Element\Template
             ]];
         }
  
-        return $data;
+        return $weekdays;
     }
 }

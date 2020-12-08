@@ -6,4 +6,4 @@
 
 use Magento\Framework\Component\ComponentRegistrar;
 
-ComponentRegistrar::register(ComponentRegistrar::MODULE, 'Hayyan_OpeningsTime', __DIR__);
+ComponentRegistrar::register(ComponentRegistrar::MODULE, 'MageGro_OpeningsTime', __DIR__);

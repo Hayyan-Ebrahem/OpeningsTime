@@ -1,6 +1,6 @@
 <?php
 
-namespace Hayyan\OpeningsTime\Block\Adminhtml\Form\Field;
+namespace MageGro\OpeningsTime\Block\Adminhtml\Form\Field;
 
 class AmPmCustomFrontend extends \Magento\Framework\Data\Form\Element\AbstractElement
 {

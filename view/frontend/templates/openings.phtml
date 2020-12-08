@@ -1,6 +1,6 @@
 <?php
 
-/** @var $block \Hayyan\OpeningsTime\Block\OpeningsTime */
+/** @var $block \MageGro\OpeningsTime\Block\OpeningsTime */
 ?>
 <div data-block="openings" class="openings-wrapper" data-bind="scope: 'openings_content'">
     <a href="#" class="toggle-slide" data-bind="click:show">Opening
@@ -16,8 +16,8 @@
             "Magento_Ui/js/core/app": {
                 "components": {
                     "openings_content": {
-                        "component": "Hayyan_OpeningsTime/js/openings-hours",
-                        "template": "Hayyan_OpeningsTime/openings/content",
+                        "component": "MageGro_OpeningsTime/js/openings-hours",
+                        "template": "MageGro_OpeningsTime/openings/content",
                         "openingstimedata": <?php /* @escapeNotVerified */ echo json_encode($block->getWeekDays()); ?>
                     }
                 }

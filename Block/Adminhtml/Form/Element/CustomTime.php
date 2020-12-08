@@ -5,18 +5,18 @@
  * See COPYING.txt for license details.
  */
 
-namespace Hayyan\OpeningsTime\Block\Adminhtml\Form\Element;
+namespace MageGro\OpeningsTime\Block\Adminhtml\Form\Element;
 
-use Magento\Framework\App\ObjectManager;
-use Magento\Framework\Escaper;
-use Magento\Framework\View\Helper\SecureHtmlRenderer;
+// use Magento\Framework\App\ObjectManager;
+// use Magento\Framework\Escaper;
+// use Magento\Framework\View\Helper\SecureHtmlRenderer;
 
 /**
  * Form time element
  *
  * @author      Magento Core Team <core@magentocommerce.com>
  */
-class Time extends \Magento\Framework\Data\Form\Element\AbstractElement
+class CustomTime extends \Magento\Framework\Data\Form\Element\AbstractElement
 {
     protected $helperData;
 
@@ -39,19 +39,19 @@ class Time extends \Magento\Framework\Data\Form\Element\AbstractElement
 
         \Magento\Framework\Data\Form\Element\Factory $factoryElement,
         \Magento\Framework\Data\Form\Element\CollectionFactory $factoryCollection,
-        Escaper $escaper,
+        \Magento\Framework\Escaper $escaper,
         $data = [],
-        ?SecureHtmlRenderer $secureRenderer = null,
-        \Hayyan\OpeningsTime\Helper\Data $helperData
+        // ?SecureHtmlRenderer $secureRenderer = null,
+        \MageGro\OpeningsTime\Helper\Data $helperData
 
     ) {
+        // $this->secureRenderer = $secureRenderer;
+        // $secureRenderer = $secureRenderer ?? ObjectManager::getInstance()->get(SecureHtmlRenderer::class);
+        parent::__construct($factoryElement, $factoryCollection, $escaper, $data);
+        // $this->setType('time');
         $this->helperData = $helperData;
 
-        $secureRenderer = $secureRenderer ?? ObjectManager::getInstance()->get(SecureHtmlRenderer::class);
-        parent::__construct($factoryElement, $factoryCollection, $escaper, $data, $secureRenderer);
-        $this->setType('time');
-        $this->secureRenderer = $secureRenderer;
-        $this->helperData = $helperData;
+
     }
 
     /**
@@ -100,7 +100,6 @@ class Time extends \Magento\Framework\Data\Form\Element\AbstractElement
             . $this->serialize($this->getHtmlAttributes())
             . $this->_getUiId('hour') . '>' . "\n";
         if ($timeFormat == 12) {
-
             for ($i = 1; $i <= $timeFormat; $i++) {
                 $hour = str_pad($i, 2, '0', STR_PAD_LEFT);
                 $html .= '<option value="' . $hour . '" ' . ($valueHrs ==
@@ -135,33 +134,33 @@ class Time extends \Magento\Framework\Data\Form\Element\AbstractElement
             $html .= '<option value="' . $hour . '" ' . ($valueSec ==
                 $i ? 'selected="selected"' : '') . '>' . $hour . '</option>';
         }
-        // $html .= '</select>' . "\n";
+        $html .= '</select>' . "\n";
 
-        // if ($timeFormat == 12) {
+        if ($timeFormat == 12) {
 
-        //     $html .= '<span>&nbsp;</span><select name="Time">';
-        //     $arr = ['AM', 'PM'];
-        //     foreach ($arr as $value) {
-        //         $this->setValue($value);
-        //         $html .= '<option value="' . $value . '" '  . '>' . $value . '</option>';
-        //     }
-        // }
+            $html .= '<span>&nbsp;</span><select name="Time">';
+            $arr = ['AM', 'PM'];
+            foreach ($arr as $value) {
+                // $this->setValue($value);
+                $html .= '<option value="' . $value . '" '  . '>' . $value . '</option>';
+            }
+        }
 
 
         $html .= '</select>' . "\n";
         $html .= '</select>' . "\n";
 
-        $html .= $this->getAfterElementHtml();
-        $html .= $this->secureRenderer->renderTag(
-            'style',
-            [],
-            <<<style
-                .select80wide {
-                    width: 40px;
-                }
-style,
-            false
-        );
+        // $html .= $this->getAfterElementHtml();
+//         $html .= $this->secureRenderer->renderTag(
+//             'style',
+//             [],
+//             <<<style
+//                 .select80wide {
+//                     width: 40px;
+//                 }
+// style,
+//             false
+//         );
 
         return $html;
     }

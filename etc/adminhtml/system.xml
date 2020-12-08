@@ -1,197 +1,190 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
     <system>
-        <tab id="Store_Openings_Time_Config" translate="label" class="a-custom-css-class-to-style-this-tab" sortOrder="10">
+        <tab id="Store_Openings_Time_Config" translate="label" class="a-custom-css-class-to-style-this-tab" sortOrder="30">
             <label>A meaningful label</label>
         </tab>
 
-        <section id="hayyan_store_openingstime_general" showInDefault="1" showInWebsite="0" showInStore="1" sortOrder="10" translate="label">
+        <section id="magegro_store_openingstime_general" showInDefault="1" showInWebsite="0" showInStore="1" sortOrder="30" translate="label">
             <label>A meaningful section label</label>
             <tab>Store_Openings_Time_Config</tab>
             <resource>VENDOR_MODULE::path_to_the_acl_resource</resource>
-            <group id="openings_time_settings" translate="label" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="1">
+            <group id="openings_time_settings" translate="label" sortOrder="30" showInDefault="1" showInWebsite="0" showInStore="1">
                 <label>Time Formate</label>
                 <comment>he fields defined in this group.</comment>
 
-                <field id="time_format" translate="label" type="select" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="time_format" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Time</label>
                     <source_model>Magento\Catalog\Model\Config\Source\TimeFormat</source_model>
-                    <frontend_model>Hayyan\OpeningsTime\Block\Adminhtml\Form\Field\TimeFormatField</frontend_model> 
+                    <frontend_model>MageGro\OpeningsTime\Block\Adminhtml\Form\Field\TimeFormatField</frontend_model> 
                 </field>
             </group>
 
-            <group id="store_openings_values" translate="label" sortOrder="15" showInDefault="1" showInWebsite="0" showInStore="1">
+            <group id="store_openings_values" translate="label" sortOrder="300" showInDefault="1" showInWebsite="0" showInStore="1">
                 <label>Store Working Days And Time</label>
                 <comment>An additional comment helping users to understand the effect when configuring the fields defined in this group.</comment>
               
-                <field id="sun_open" translate="label" type="Hayyan\OpeningsTime\Block\Adminhtml\Form\Element\Time" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="Sunday_open" translate="label" type="MageGro\OpeningsTime\Block\Adminhtml\Form\Element\CustomTime" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Sunday</label>
                 </field>
-                <field id="sun_open_ampm" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+
+                <field id="Sunday_close" translate="label" type="MageGro\OpeningsTime\Block\Adminhtml\Form\Element\CustomTime" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                </field>
+                <field id="Sunday_closeampm" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
                     <depends>
-                        <field id="hayyan_store_openingstime_general/openings_time_settings/time_format">12h</field>
+                        <field id="magegro_store_openingstime_general/openings_time_settings/time_format">12h</field>
                     </depends>
-                    <source_model>Hayyan\OpeningsTime\Model\Config\Source\Custom</source_model>
-                    <!-- <frontend_model>Hayyan\OpeningsTime\Block\Adminhtml\Form\Field\AmPmCustomFrontend</frontend_model> -->
-
-                </field>
-                <field id="sun_close" translate="label" type="Hayyan\OpeningsTime\Block\Adminhtml\Form\Element\Time" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
-                </field>
-                <field id="sun_close_ampm" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
-                    <depends>
-                        <field id="hayyan_store_openingstime_general/openings_time_settings/time_format">12h</field>
-                    </depends>
-                    <source_model>Hayyan\OpeningsTime\Model\Config\Source\Custom</source_model>
-                    <!-- <frontend_model>Hayyan\OpeningsTime\Block\Adminhtml\Form\Field\AmPmCustomFrontend</frontend_model> -->
+                    <source_model>MageGro\OpeningsTime\Model\Config\Source\Custom</source_model>
+                    <!-- <frontend_model>MageGro\OpeningsTime\Block\Adminhtml\Form\Field\AmPmCustomFrontend</frontend_model> -->
 
                 </field>
 
-                <field id="mon_open" translate="label" type="Hayyan\OpeningsTime\Block\Adminhtml\Form\Element\Time" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="Monday_open" translate="label" type="MageGro\OpeningsTime\Block\Adminhtml\Form\Element\CustomTime" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Monday</label>
                 </field>
-                <field id="mon_open_ampm" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="Monday_openampm" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
                     <depends>
-                        <field id="hayyan_store_openingstime_general/openings_time_settings/time_format">12h</field>
+                        <field id="magegro_store_openingstime_general/openings_time_settings/time_format">12h</field>
                     </depends>
-                    <source_model>Hayyan\OpeningsTime\Model\Config\Source\Custom</source_model>
-                    <!-- <frontend_model>Hayyan\OpeningsTime\Block\Adminhtml\Form\Field\AmPmCustomFrontend</frontend_model> -->
+                    <source_model>MageGro\OpeningsTime\Model\Config\Source\Custom</source_model>
+                    <!-- <frontend_model>MageGro\OpeningsTime\Block\Adminhtml\Form\Field\AmPmCustomFrontend</frontend_model> -->
 
                 </field>
-                <field id="mon_close" translate="label" type="Hayyan\OpeningsTime\Block\Adminhtml\Form\Element\Time" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="Monday_close" translate="label" type="MageGro\OpeningsTime\Block\Adminhtml\Form\Element\CustomTime" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
 
                 </field>
 
-                <field id="mon_close_ampm" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="Monday_closeampm" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
                     <depends>
-                        <field id="hayyan_store_openingstime_general/openings_time_settings/time_format">12h</field>
+                        <field id="magegro_store_openingstime_general/openings_time_settings/time_format">12h</field>
                     </depends>
-                    <source_model>Hayyan\OpeningsTime\Model\Config\Source\Custom</source_model>
-                    <!-- <frontend_model>Hayyan\OpeningsTime\Block\Adminhtml\Form\Field\AmPmCustomFrontend</frontend_model> -->
+                    <source_model>MageGro\OpeningsTime\Model\Config\Source\Custom</source_model>
+                    <!-- <frontend_model>MageGro\OpeningsTime\Block\Adminhtml\Form\Field\AmPmCustomFrontend</frontend_model> -->
 
                 </field>
 
-                <field id="tue_open" translate="label" type="Hayyan\OpeningsTime\Block\Adminhtml\Form\Element\Time" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="Tuesday_open" translate="label" type="MageGro\OpeningsTime\Block\Adminhtml\Form\Element\CustomTime" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Tuesday</label>
 
                 </field>
-                <field id="tue_open_ampm" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="Tuesday_openampm" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
                     <depends>
-                        <field id="hayyan_store_openingstime_general/openings_time_settings/time_format">12h</field>
+                        <field id="magegro_store_openingstime_general/openings_time_settings/time_format">12h</field>
                     </depends>
-                    <source_model>Hayyan\OpeningsTime\Model\Config\Source\Custom</source_model>
-                    <!-- <frontend_model>Hayyan\OpeningsTime\Block\Adminhtml\Form\Field\AmPmCustomFrontend</frontend_model> -->
+                    <source_model>MageGro\OpeningsTime\Model\Config\Source\Custom</source_model>
+                    <!-- <frontend_model>MageGro\OpeningsTime\Block\Adminhtml\Form\Field\AmPmCustomFrontend</frontend_model> -->
 
                 </field>
-                <field id="tue_close" translate="label" type="Hayyan\OpeningsTime\Block\Adminhtml\Form\Element\Time" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="Tuesday_close" translate="label" type="MageGro\OpeningsTime\Block\Adminhtml\Form\Element\CustomTime" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
 
                 </field>
 
-                <field id="tue_close_ampm" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="Tuesday_closeampm" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
                     <depends>
-                        <field id="hayyan_store_openingstime_general/openings_time_settings/time_format">12h</field>
+                        <field id="magegro_store_openingstime_general/openings_time_settings/time_format">12h</field>
                     </depends>
-                    <source_model>Hayyan\OpeningsTime\Model\Config\Source\Custom</source_model>
-                    <!-- <frontend_model>Hayyan\OpeningsTime\Block\Adminhtml\Form\Field\AmPmCustomFrontend</frontend_model> -->
+                    <source_model>MageGro\OpeningsTime\Model\Config\Source\Custom</source_model>
+                    <!-- <frontend_model>MageGro\OpeningsTime\Block\Adminhtml\Form\Field\AmPmCustomFrontend</frontend_model> -->
 
                 </field>
 
-                <field id="wed_open" translate="label" type="Hayyan\OpeningsTime\Block\Adminhtml\Form\Element\Time" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="Wednesday_open" translate="label" type="MageGro\OpeningsTime\Block\Adminhtml\Form\Element\CustomTime" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Wednesday</label>
 
                 </field>
-                <field id="wed_open_ampm" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="Wednesday_openampm" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
                     <depends>
-                        <field id="hayyan_store_openingstime_general/openings_time_settings/time_format">12h</field>
+                        <field id="magegro_store_openingstime_general/openings_time_settings/time_format">12h</field>
                     </depends>
-                    <source_model>Hayyan\OpeningsTime\Model\Config\Source\Custom</source_model>
-                    <!-- <frontend_model>Hayyan\OpeningsTime\Block\Adminhtml\Form\Field\AmPmCustomFrontend</frontend_model> -->
+                    <source_model>MageGro\OpeningsTime\Model\Config\Source\Custom</source_model>
+                    <!-- <frontend_model>MageGro\OpeningsTime\Block\Adminhtml\Form\Field\AmPmCustomFrontend</frontend_model> -->
 
 
                 </field>
-                <field id="wed_close" translate="label" type="Hayyan\OpeningsTime\Block\Adminhtml\Form\Element\Time" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="Wednesday_close" translate="label" type="MageGro\OpeningsTime\Block\Adminhtml\Form\Element\CustomTime" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
 
                 </field>
 
-                <field id="wed_close_ampm" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="Wednesday_closeampm" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
                     <depends>
-                        <field id="hayyan_store_openingstime_general/openings_time_settings/time_format">12h</field>
+                        <field id="magegro_store_openingstime_general/openings_time_settings/time_format">12h</field>
                     </depends>
-                    <source_model>Hayyan\OpeningsTime\Model\Config\Source\Custom</source_model>
-                    <!-- <frontend_model>Hayyan\OpeningsTime\Block\Adminhtml\Form\Field\AmPmCustomFrontend</frontend_model> -->
+                    <source_model>MageGro\OpeningsTime\Model\Config\Source\Custom</source_model>
+                    <!-- <frontend_model>MageGro\OpeningsTime\Block\Adminhtml\Form\Field\AmPmCustomFrontend</frontend_model> -->
 
 
                 </field>
-                <field id="thu_open" translate="label" type="Hayyan\OpeningsTime\Block\Adminhtml\Form\Element\Time" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="Thursday_open" translate="label" type="MageGro\OpeningsTime\Block\Adminhtml\Form\Element\CustomTime" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Thursday</label>
 
                 </field>
-                <field id="thu_open_ampm" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="Thursday_openampm" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
                     <depends>
-                        <field id="hayyan_store_openingstime_general/openings_time_settings/time_format">12h</field>
+                        <field id="magegro_store_openingstime_general/openings_time_settings/time_format">12h</field>
                     </depends>
-                    <source_model>Hayyan\OpeningsTime\Model\Config\Source\Custom</source_model>
-                    <!-- <frontend_model>Hayyan\OpeningsTime\Block\Adminhtml\Form\Field\AmPmCustomFrontend</frontend_model> -->
+                    <source_model>MageGro\OpeningsTime\Model\Config\Source\Custom</source_model>
+                    <!-- <frontend_model>MageGro\OpeningsTime\Block\Adminhtml\Form\Field\AmPmCustomFrontend</frontend_model> -->
 
 
                 </field>
-                <field id="thu_close" translate="label" type="Hayyan\OpeningsTime\Block\Adminhtml\Form\Element\Time" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="Thursday_close" translate="label" type="MageGro\OpeningsTime\Block\Adminhtml\Form\Element\CustomTime" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
 
                 </field>
 
-                <field id="thu_close_ampm" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="Thursday_closeampm" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
                     <depends>
-                        <field id="hayyan_store_openingstime_general/openings_time_settings/time_format">12h</field>
+                        <field id="magegro_store_openingstime_general/openings_time_settings/time_format">12h</field>
                     </depends>
-                    <source_model>Hayyan\OpeningsTime\Model\Config\Source\Custom</source_model>
-                    <!-- <frontend_model>Hayyan\OpeningsTime\Block\Adminhtml\Form\Field\AmPmCustomFrontend</frontend_model> -->
+                    <source_model>MageGro\OpeningsTime\Model\Config\Source\Custom</source_model>
+                    <!-- <frontend_model>MageGro\OpeningsTime\Block\Adminhtml\Form\Field\AmPmCustomFrontend</frontend_model> -->
 
 
                 </field>
 
 
-                <field id="fri_open" translate="label" type="Hayyan\OpeningsTime\Block\Adminhtml\Form\Element\Time" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="Friday_open" translate="label" type="MageGro\OpeningsTime\Block\Adminhtml\Form\Element\CustomTime" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Friday</label>
 
                 </field>
-                <field id="fri_open_ampm" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="Friday_openampm" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
                     <depends>
-                        <field id="hayyan_store_openingstime_general/openings_time_settings/time_format">12h</field>
+                        <field id="magegro_store_openingstime_general/openings_time_settings/time_format">12h</field>
                     </depends>
-                    <source_model>Hayyan\OpeningsTime\Model\Config\Source\Custom</source_model>
-                    <!-- <frontend_model>Hayyan\OpeningsTime\Block\Adminhtml\Form\Field\AmPmCustomFrontend</frontend_model> -->
+                    <source_model>MageGro\OpeningsTime\Model\Config\Source\Custom</source_model>
+                    <!-- <frontend_model>MageGro\OpeningsTime\Block\Adminhtml\Form\Field\AmPmCustomFrontend</frontend_model> -->
 
                 </field>
-                <field id="fri_close" translate="label" type="Hayyan\OpeningsTime\Block\Adminhtml\Form\Element\Time" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="Friday_close" translate="label" type="MageGro\OpeningsTime\Block\Adminhtml\Form\Element\CustomTime" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
                 </field>
 
-                <field id="fri_close_ampm" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="Friday_closeampm" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
                     <depends>
-                        <field id="hayyan_store_openingstime_general/openings_time_settings/time_format">12h</field>
+                        <field id="magegro_store_openingstime_general/openings_time_settings/time_format">12h</field>
                     </depends>
-                    <source_model>Hayyan\OpeningsTime\Model\Config\Source\Custom</source_model>
-                    <!-- <frontend_model>Hayyan\OpeningsTime\Block\Adminhtml\Form\Field\AmPmCustomFrontend</frontend_model> -->
+                    <source_model>MageGro\OpeningsTime\Model\Config\Source\Custom</source_model>
+                    <!-- <frontend_model>MageGro\OpeningsTime\Block\Adminhtml\Form\Field\AmPmCustomFrontend</frontend_model> -->
 
                 </field>
 
-                <field id="sat_open" translate="label" type="Hayyan\OpeningsTime\Block\Adminhtml\Form\Element\Time" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="Saturday_open" translate="label" type="MageGro\OpeningsTime\Block\Adminhtml\Form\Element\CustomTime" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Saturday</label>
                 </field>
-                <field id="sat_open_ampm" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="Saturday_openampm" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
                     <depends>
-                        <field id="hayyan_store_openingstime_general/openings_time_settings/time_format">12h</field>
+                        <field id="magegro_store_openingstime_general/openings_time_settings/time_format">12h</field>
                     </depends>
-                    <source_model>Hayyan\OpeningsTime\Model\Config\Source\Custom</source_model>
-                    <!-- <frontend_model>Hayyan\OpeningsTime\Block\Adminhtml\Form\Field\AmPmCustomFrontend</frontend_model> -->
+                    <source_model>MageGro\OpeningsTime\Model\Config\Source\Custom</source_model>
+                    <!-- <frontend_model>MageGro\OpeningsTime\Block\Adminhtml\Form\Field\AmPmCustomFrontend</frontend_model> -->
 
                 </field>
-                <field id="sat_close" translate="label" type="Hayyan\OpeningsTime\Block\Adminhtml\Form\Element\Time" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="Saturday_close" translate="label" type="MageGro\OpeningsTime\Block\Adminhtml\Form\Element\CustomTime" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
                 </field>
 
-                <field id="sat_close_ampm" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="Saturday_closeampm" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
                     <depends>
-                        <field id="hayyan_store_openingstime_general/openings_time_settings/time_format">12h</field>
+                        <field id="magegro_store_openingstime_general/openings_time_settings/time_format">12h</field>
                     </depends>
-                    <source_model>Hayyan\OpeningsTime\Model\Config\Source\Custom</source_model>
-                    <!-- <frontend_model>Hayyan\OpeningsTime\Block\Adminhtml\Form\Field\AmPmCustomFrontend</frontend_model> -->
+                    <source_model>MageGro\OpeningsTime\Model\Config\Source\Custom</source_model>
+                    <!-- <frontend_model>MageGro\OpeningsTime\Block\Adminhtml\Form\Field\AmPmCustomFrontend</frontend_model> -->
 
                 </field>
 

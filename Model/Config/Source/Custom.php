@@ -1,6 +1,6 @@
 <?php
 
-namespace Hayyan\OpeningsTime\Model\Config\Source;
+namespace MageGro\OpeningsTime\Model\Config\Source;
 
 
 class Custom implements \Magento\Framework\Option\ArrayInterface

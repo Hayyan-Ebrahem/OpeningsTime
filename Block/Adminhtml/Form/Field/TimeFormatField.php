@@ -1,5 +1,5 @@
 <?php
-namespace Hayyan\OpeningsTime\Block\Adminhtml\Form\Field;
+namespace MageGro\OpeningsTime\Block\Adminhtml\Form\Field;
 
 class TimeFormatField extends \Magento\Config\Block\System\Config\Form\Field {
 
