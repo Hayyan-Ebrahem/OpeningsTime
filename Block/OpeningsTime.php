@@ -34,25 +34,23 @@ class OpeningsTime extends \Magento\Framework\View\Element\Template
         $localeweekdays = array_column($this->getLocaleWeekdays(), 'label');
         $weekdays = [];
         $days = $this->helperData->getDaysConfig();
-        
+
         foreach ($days as $day => $time) {
-            foreach($localeweekdays as  $value)
-            {
-                if (strtok($day, '_') === $value){
-                    $weekdays[$value][] = $time;
+            foreach ($localeweekdays as  $label => $value) {
+                if (strtok($day, '_') === $value) {
+                    $weekdays[$label][$value][] = $time;
                 }
-
             }
-          
         }
-        foreach ($weekdays as $day => $time) {
+        ksort($weekdays);
+        // foreach ($weekdays as $day => $time) {
 
-            $data[] = ['day' => $day, 'time' => [
-                'openingtime' => str_replace(",", ":", $time[0]),
-                'closingtime' => str_replace(",", ":", $time[1])
-            ]];
-        }
- 
+        //     $data[] = ['day' => $day, 'time' => [
+        //         'openingtime' => str_replace(",", ":", $time[0]),
+        //         'closingtime' => str_replace(",", ":", $time[1])
+        //     ]];
+        // }
         return $weekdays;
+
     }
 }

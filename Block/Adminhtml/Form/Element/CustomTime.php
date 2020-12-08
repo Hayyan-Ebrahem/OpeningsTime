@@ -104,7 +104,7 @@ class CustomTime extends \Magento\Framework\Data\Form\Element\AbstractElement
                 $hour = str_pad($i, 2, '0', STR_PAD_LEFT);
                 $html .= '<option value="' . $hour . '" ' . ($valueHrs ==
                     $i ? 'selected="selected"' : '') . '>' . $hour . '</option>';
-            }
+            }       
         } else {
             for ($i = 0; $i < $timeFormat; $i++) {
                 $hour = str_pad($i, 2, '0', STR_PAD_LEFT);
@@ -136,31 +136,21 @@ class CustomTime extends \Magento\Framework\Data\Form\Element\AbstractElement
         }
         $html .= '</select>' . "\n";
 
-        if ($timeFormat == 12) {
+        // if ($timeFormat == 12) {
 
-            $html .= '<span>&nbsp;</span><select name="Time">';
-            $arr = ['AM', 'PM'];
-            foreach ($arr as $value) {
-                // $this->setValue($value);
-                $html .= '<option value="' . $value . '" '  . '>' . $value . '</option>';
-            }
-        }
+        //     $html .= '<span>&nbsp;</span><select name="Time">';
+        //     $arr = ['AM', 'PM'];
+        //     foreach ($arr as $value) {
+        //         $html .= '<option value="' . $value . '" '  . '>' . $value . '</option>';
+        //     }
+        // }
 
 
-        $html .= '</select>' . "\n";
-        $html .= '</select>' . "\n";
+        // $html .= '</select>' . "\n";
+        // $html .= '</select>' . "\n";
 
-        // $html .= $this->getAfterElementHtml();
-//         $html .= $this->secureRenderer->renderTag(
-//             'style',
-//             [],
-//             <<<style
-//                 .select80wide {
-//                     width: 40px;
-//                 }
-// style,
-//             false
-//         );
+        $html .= $this->getAfterElementHtml();
+ 
 
         return $html;
     }
