@@ -22,8 +22,11 @@
                     <tr data-bind="attr: { id: $index }, style: { color:
                          ($index() === (new Date()).getDay() && $parent.getOpeningStatus(daytime.time.openingtime,daytime.time.closingtime)) ? 'green': 'red' }">
                         <td  data-bind="text: daytime.day"></time>></td>
-                        <td <time data-bind="text: daytime.time.openingtime"></time></td>
-                        <td <time data-bind="text: daytime.time.closingtime"></time></td>
+                        <td data-bind="text: daytime.time.openingtime"></td>
+                        <td data-bind="text: daytime.time.openingtime_ampm"></td>
+                        <td  data-bind="text: daytime.time.closingtime"></td>
+                        <td data-bind="text: daytime.time.closingtime_ampm"></td>
+
 
                     </tr>
                     <!-- /ko -->
