@@ -18,7 +18,9 @@
                     "openings_content": {
                         "component": "MageGro_OpeningsTime/js/openings-hours",
                         "template": "MageGro_OpeningsTime/openings/content",
-                        "openingstimedata": <?php /* @escapeNotVerified */ echo json_encode($block->getWeekDays()); ?>
+                        "openingstimedata": <?php /* @escapeNotVerified */ echo json_encode($block->getWeekDays()); ?>,
+                        "timeformat": <?php /* @escapeNotVerified */ echo $block->getConfigTimeFormat(); ?>
+
                     }
                 }
             }

@@ -28,6 +28,7 @@ class Data extends AbstractHelper
     public function getTimeConfig()
     {
         $timeFormat = $this->_scopeconfig->getValue('magegro_store_openingstime_general/openings_time_settings/time_format', \Magento\Store\Model\ScopeInterface::SCOPE_STORE);
+        $timeFormat = substr($timeFormat,0,2);
         return $timeFormat;
     }
 

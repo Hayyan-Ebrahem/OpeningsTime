@@ -20,32 +20,29 @@ define([
         initialize: function (config) {
 
            this.openingstime=config.openingstimedata;
-           console.log(this.openingstime);
+           this.configtimeformat=config.timeformat;
+
            return this._super();
-
-
         },
  
-
         show: function () {
             // event.preventDefault();
             $(".openings-content-wrapper").slideToggle('slow');
 
         },
-
-
-        // getWeekDays: function () {
-        //     var dayNames = $.parseJSON(window.getStoreOpeningsTime);
-
-        //     return dayNames;
-        // },
-        getOpeningStatus: function (openingstime, closingTime) {
-
-            var now = moment((new Date()),'HH:mm');
-            var opentime = moment(openingstime, 'HH:mm');
-            var clostime = moment(closingTime, 'HH:mm');
-
-            if (moment(now).isBetween(opentime, clostime)){
+        
+        getOpeningStatus: function (openingtime,closingtime) {
+            if(this.configtimeformat == 24 ){
+                var format = 'H:mm'
+            }else{
+                format = 'h:mm A'
+            }
+            
+            var now = moment();
+            var opentime = moment(openingtime, format);
+            var closetime = moment(closingtime, format);
+            console.log(closetime);
+            if (now.isBetween(opentime, closetime)){
                 return true;
             }
             return false;
