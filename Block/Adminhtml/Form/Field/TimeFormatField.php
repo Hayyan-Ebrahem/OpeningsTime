@@ -5,11 +5,10 @@ class TimeFormatField extends \Magento\Config\Block\System\Config\Form\Field {
 
 
     protected function _getElementHtml(\Magento\Framework\Data\Form\Element\AbstractElement $element) {	
-        $element->addClass("ampm");
+        $element->addClass("ampmtimeformat");
         $html = $element->getElementHtml();	
-        $html .= '<script type="text/javascript">	
+        $html .= '<script>	
         requirejs(["jquery", "timeformat"], function($){
-            // Your Code
         });
             </script>';	
         return $html;	
