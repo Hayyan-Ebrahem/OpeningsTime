@@ -15,6 +15,13 @@
                 <span translate="'Close'" />
             </button>
             <table class="days">
+                <thead>
+                    <tr>
+                      <th>Day</th>
+                      <th>Open At</th>
+                      <th>Closed At</th>
+                    </tr>
+                  </thead>
                 <tbody>
                     <!-- ko foreach: { data: openingstime, as: 'daytime' } -->
                     <tr data-bind="attr: { id: $index }, style: { color:

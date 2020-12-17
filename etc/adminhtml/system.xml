@@ -1,25 +1,25 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
     <system>
-        <tab id="Store_Openings_Time_Config" translate="label" class="a-custom-css-class-to-style-this-tab" sortOrder="55">
+        <tab id="Store_Openings_Time_Config" translate="label" class="a-custom-css-class-to-style-this-tab" sortOrder="50">
             <label>A meaningful label</label>
         </tab>
 
-        <section id="magegro_store_openingstime_general" showInDefault="1" showInWebsite="0" showInStore="1" sortOrder="55" translate="label">
+        <section id="magegro_store_openingstime_general" showInDefault="1" showInWebsite="0" showInStore="1" sortOrder="50" translate="label">
             <label>A meaningful section label</label>
             <tab>Store_Openings_Time_Config</tab>
             <resource>VENDOR_MODULE::path_to_the_acl_resource</resource>
-            <group id="openings_time_settings" translate="label" sortOrder="55" showInDefault="1" showInWebsite="0" showInStore="1">
+            <group id="openings_time_settings" translate="label" sortOrder="50" showInDefault="1" showInWebsite="0" showInStore="1">
                 <label>Time Formate</label>
                 <comment>he fields defined in this group.</comment>
 
-                <field id="time_format" translate="label" type="select" sortOrder="55" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="time_format" translate="label" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Time</label>
                     <source_model>Magento\Catalog\Model\Config\Source\TimeFormat</source_model>
                     <frontend_model>MageGro\OpeningsTime\Block\Adminhtml\Form\Field\TimeFormatField</frontend_model> 
                 </field>
             </group>
 
-            <group id="store_openings_values" translate="label" sortOrder="550" showInDefault="1" showInWebsite="0" showInStore="1">
+            <group id="store_openings_values" translate="label" sortOrder="500" showInDefault="1" showInWebsite="0" showInStore="1">
                 <label>Store Working Days And Time</label>
                 <comment>An additional comment helping users to understand the effect when configuring the fields defined in this group.</comment>
               
@@ -75,7 +75,6 @@
                     </depends>
                     <source_model>MageGro\OpeningsTime\Model\Config\Source\Custom</source_model>
                     <frontend_class>ampm</frontend_class>
-
                 </field>
                 <field id="Tuesday_close" translate="label" type="MageGro\OpeningsTime\Block\Adminhtml\Form\Element\CustomTime" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
                 </field>
@@ -85,29 +84,26 @@
                     </depends>
                     <source_model>MageGro\OpeningsTime\Model\Config\Source\Custom</source_model>
                     <frontend_class>ampm</frontend_class>
-
                 </field>
 
-                <field id="Wednesday_open" translate="label" type="MageGro\OpeningsTime\Block\Adminhtml\Form\Element\CustomTime" sortOrder="55" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="Wednesday_open" translate="label" type="MageGro\OpeningsTime\Block\Adminhtml\Form\Element\CustomTime" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Wednesday</label>
                 </field>
-                <field id="Wednesday_openampm" translate="label" type="select" sortOrder="55" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="Wednesday_openampm" translate="label" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
                     <depends>
                         <field id="magegro_store_openingstime_general/openings_time_settings/time_format">12h</field>
                     </depends>
                     <source_model>MageGro\OpeningsTime\Model\Config\Source\Custom</source_model>
                     <frontend_class>ampm</frontend_class>
-
                 </field>
-                <field id="Wednesday_close" translate="label" type="MageGro\OpeningsTime\Block\Adminhtml\Form\Element\CustomTime" sortOrder="55" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="Wednesday_close" translate="label" type="MageGro\OpeningsTime\Block\Adminhtml\Form\Element\CustomTime" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
                 </field>
-                <field id="Wednesday_closeampm" translate="label" type="select" sortOrder="55" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="Wednesday_closeampm" translate="label" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
                     <depends>
                         <field id="magegro_store_openingstime_general/openings_time_settings/time_format">12h</field>
                     </depends>
                     <source_model>MageGro\OpeningsTime\Model\Config\Source\Custom</source_model>
                     <frontend_class>ampm</frontend_class>
-
                 </field>
 
                 <field id="Thursday_open" translate="label" type="MageGro\OpeningsTime\Block\Adminhtml\Form\Element\CustomTime" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
@@ -119,7 +115,6 @@
                     </depends>
                     <source_model>MageGro\OpeningsTime\Model\Config\Source\Custom</source_model>
                     <frontend_class>ampm</frontend_class>
-
                 </field>
                 <field id="Thursday_close" translate="label" type="MageGro\OpeningsTime\Block\Adminhtml\Form\Element\CustomTime" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
                 </field>
@@ -129,7 +124,6 @@
                     </depends>
                     <source_model>MageGro\OpeningsTime\Model\Config\Source\Custom</source_model>
                     <frontend_class>ampm</frontend_class>
-
                 </field>
 
                 <field id="Friday_open" translate="label" type="MageGro\OpeningsTime\Block\Adminhtml\Form\Element\CustomTime" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
@@ -141,7 +135,6 @@
                     </depends>
                     <source_model>MageGro\OpeningsTime\Model\Config\Source\Custom</source_model>
                     <frontend_class>ampm</frontend_class>
-
                 </field>
                 <field id="Friday_close" translate="label" type="MageGro\OpeningsTime\Block\Adminhtml\Form\Element\CustomTime" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
                 </field>
@@ -151,7 +144,6 @@
                     </depends>
                     <source_model>MageGro\OpeningsTime\Model\Config\Source\Custom</source_model>
                     <frontend_class>ampm</frontend_class>
-
                 </field>
 
                 <field id="Saturday_open" translate="label" type="MageGro\OpeningsTime\Block\Adminhtml\Form\Element\CustomTime" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
@@ -163,7 +155,6 @@
                     </depends>
                     <source_model>MageGro\OpeningsTime\Model\Config\Source\Custom</source_model>
                     <frontend_class>ampm</frontend_class>
-
                 </field>
                 <field id="Saturday_close" translate="label" type="MageGro\OpeningsTime\Block\Adminhtml\Form\Element\CustomTime" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
                 </field>
@@ -173,7 +164,6 @@
                     </depends>
                     <source_model>MageGro\OpeningsTime\Model\Config\Source\Custom</source_model>
                     <frontend_class>ampm</frontend_class>
-
                 </field>
 
             </group>
