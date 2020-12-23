@@ -41,14 +41,10 @@ class CustomTime extends \Magento\Framework\Data\Form\Element\AbstractElement
         \Magento\Framework\Data\Form\Element\CollectionFactory $factoryCollection,
         \Magento\Framework\Escaper $escaper,
         $data = [],
-        // ?SecureHtmlRenderer $secureRenderer = null,
         \MageGro\OpeningsTime\Helper\Data $helperData
 
     ) {
-        // $this->secureRenderer = $secureRenderer;
-        // $secureRenderer = $secureRenderer ?? ObjectManager::getInstance()->get(SecureHtmlRenderer::class);
         parent::__construct($factoryElement, $factoryCollection, $escaper, $data);
-        // $this->setType('time');
         $this->helperData = $helperData;
 
 
@@ -84,14 +80,14 @@ class CustomTime extends \Magento\Framework\Data\Form\Element\AbstractElement
 
         $valueHrs = 0;
         $valueMin = 0;
-        $valueSec = 0;
+        $valueAmPm = 'AM';
 
         if ($value = $this->getValue()) {
             $values = explode(',', $value);
-            if (is_array($values) && count($values) == 3) {
+            if (is_array($values)) {
                 $valueHrs = $values[0];
                 $valueMin = $values[1];
-                $valueSec = $values[2];
+                (isset($values[2])) ? $valueAmPm = $values[2] : '';
             }
         }
 
@@ -125,28 +121,22 @@ class CustomTime extends \Magento\Framework\Data\Form\Element\AbstractElement
         }
         $html .= '</select>' . "\n";
 
-        $html .= '<span class="time-separator">&nbsp;</span><select class="seconds" name="'
+
+        if ($timeFormat == 12) {
+
+            $html .= '<span>&nbsp;</span><select class ="ampm" name="'
             . $this->getName() . '" '
             . $this->serialize($this->getHtmlAttributes())
-            . $this->_getUiId('second') . '>' . "\n";
-        for ($i = 0; $i < 60; $i++) {
-            $hour = str_pad($i, 2, '0', STR_PAD_LEFT);
-            $html .= '<option value="' . $hour . '" ' . ($valueSec ==
-                $i ? 'selected="selected"' : '') . '>' . $hour . '</option>';
+            . $this->_getUiId('ampm') . '>' . "\n";
+            $arr = ['AM', 'PM'];
+            foreach ($arr as $ampm) {
+                $html .= '<option value="' . $ampm . '" ' . ($valueAmPm ==
+                $ampm ? 'selected="selected"' : '') . '>' . $ampm . '</option>';
+            }
+            $html .= '</select>' . "\n";
+
+
         }
-        $html .= '</select>' . "\n";
-
-        // if ($timeFormat == 12) {
-
-        //     $html .= '<span>&nbsp;</span><select name="Time">';
-        //     $arr = ['AM', 'PM'];
-        //     foreach ($arr as $value) {
-        //         $html .= '<option value="' . $value . '" '  . '>' . $value . '</option>';
-        //     }
-        // }
-
-
-        // $html .= '</select>' . "\n";
         // $html .= '</select>' . "\n";
 
         $html .= $this->getAfterElementHtml();
