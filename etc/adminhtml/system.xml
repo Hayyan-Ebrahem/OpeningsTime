@@ -15,7 +15,7 @@
                 <field id="time_format" translate="label" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Time</label>
                     <source_model>Magento\Catalog\Model\Config\Source\TimeFormat</source_model>
-                    <frontend_model>MageGro\OpeningsTime\Block\Adminhtml\Form\Field\TimeFormatField</frontend_model> 
+                    <frontend_class>ampmtimeformat</frontend_class> 
                 </field>
             </group>
 
@@ -24,10 +24,12 @@
                 <comment>An additional comment helping users to understand the effect when configuring the fields defined in this group.</comment>
               
                 <field id="Sunday_open" translate="label" type="MageGro\OpeningsTime\Block\Adminhtml\Form\Element\CustomTime" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
-                    <label>Sunday</label>
+                    <label>Sunday Open</label>
                 </field>
      
                 <field id="Sunday_close" translate="label" type="MageGro\OpeningsTime\Block\Adminhtml\Form\Element\CustomTime" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Sunday Close</label>
+
                 </field>
     
 

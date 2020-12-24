@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <magegro_store_openingstime_general>
+            <openings_time_setting>
+                <time_format>24h</time_format>
+            </openings_time_setting>
+            <store_openings_values>
+                <Sunday_open>11,30</Sunday_open>
+                <Sunday_close>3,00</Sunday_close>
+                <Monday_open>8,30</Monday_open>
+                <Monday_close>17,00</Monday_close>
+                <Tuesday_open>8,30</Tuesday_open>
+                <Tuesday_close>17,00</Tuesday_close>
+                <Wednesday_open>8,30</Wednesday_open>
+                <Wednesday_close>17,00</Wednesday_close>
+                <Thursday_open>8,30</Thursday_open>
+                <Thursday_close>17,00</Thursday_close>
+                <Friday_open>8,30</Friday_open>
+                <Friday_close>17,00</Friday_close>
+                <Saturday_open>11,00</Saturday_open>
+                <Saturday_close>14,00</Saturday_close>
+            </store_openings_values>
+        </magegro_store_openingstime_general>
+    </default>
+</config>

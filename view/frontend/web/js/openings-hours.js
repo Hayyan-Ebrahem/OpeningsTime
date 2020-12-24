@@ -41,7 +41,6 @@ define([
             var now = moment();
             var opentime = moment(openingtime, format);
             var closetime = moment(closingtime, format);
-            console.log(closetime);
             if (now.isBetween(opentime, closetime)){
                 return true;
             }
