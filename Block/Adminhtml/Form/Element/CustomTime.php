@@ -7,9 +7,9 @@
 
 namespace MageGro\OpeningsTime\Block\Adminhtml\Form\Element;
 
-// use Magento\Framework\App\ObjectManager;
-// use Magento\Framework\Escaper;
-// use Magento\Framework\View\Helper\SecureHtmlRenderer;
+use Magento\Framework\App\ObjectManager;
+use Magento\Framework\Escaper;
+use Magento\Framework\View\Helper\SecureHtmlRenderer;
 
 /**
  * Form time element
@@ -41,17 +41,12 @@ class CustomTime extends \Magento\Framework\Data\Form\Element\AbstractElement
         \Magento\Framework\Data\Form\Element\CollectionFactory $factoryCollection,
         \Magento\Framework\Escaper $escaper,
         $data = [],
-        // ?SecureHtmlRenderer $secureRenderer = null,
-        \MageGro\OpeningsTime\Helper\Data $helperData
+        ?SecureHtmlRenderer $secureRenderer = null
 
     ) {
-        // $this->secureRenderer = $secureRenderer;
-        // $secureRenderer = $secureRenderer ?? ObjectManager::getInstance()->get(SecureHtmlRenderer::class);
-        parent::__construct($factoryElement, $factoryCollection, $escaper, $data);
-        // $this->setType('time');
-        $this->helperData = $helperData;
-
-
+        $secureRenderer = $secureRenderer ?? ObjectManager::getInstance()->get(SecureHtmlRenderer::class);
+        parent::__construct($factoryElement, $factoryCollection, $escaper, $data, $secureRenderer);
+        $this->secureRenderer = $secureRenderer;
     }
 
     /**
@@ -66,11 +61,6 @@ class CustomTime extends \Magento\Framework\Data\Form\Element\AbstractElement
         return $name;
     }
 
-    public function getTimeConfig()
-    {
-        return $this->helperData->getTimeConfig();
-    }
-
     /**
      * @inheritDoc
      * @SuppressWarnings(PHPMD.CyclomaticComplexity)
@@ -78,39 +68,28 @@ class CustomTime extends \Magento\Framework\Data\Form\Element\AbstractElement
      */
     public function getElementHtml()
     {
-        $timeFormat = substr($this->getTimeConfig(), 0, 2);
         $this->addClass('select admin__control-select');
         $this->addClass('select80wide');
 
         $valueHrs = 0;
         $valueMin = 0;
-        $valueSec = 0;
 
         if ($value = $this->getValue()) {
             $values = explode(',', $value);
-            if (is_array($values) && count($values) == 3) {
+            if (is_array($values)) {
                 $valueHrs = $values[0];
                 $valueMin = $values[1];
-                $valueSec = $values[2];
             }
         }
 
         $html = '<input type="hidden" id="' . $this->getHtmlId() . '" ' . $this->_getUiId() . '/>';
-        $html .= '<select class ="hour" name="' . $this->getName() . '" '
+        $html .= '<select name="' . $this->getName() . '" '
             . $this->serialize($this->getHtmlAttributes())
             . $this->_getUiId('hour') . '>' . "\n";
-        if ($timeFormat == 12) {
-            for ($i = 1; $i <= $timeFormat; $i++) {
-                $hour = str_pad($i, 2, '0', STR_PAD_LEFT);
-                $html .= '<option value="' . $hour . '" ' . ($valueHrs ==
-                    $i ? 'selected="selected"' : '') . '>' . $hour . '</option>';
-            }       
-        } else {
-            for ($i = 0; $i < $timeFormat; $i++) {
-                $hour = str_pad($i, 2, '0', STR_PAD_LEFT);
-                $html .= '<option value="' . $hour . '" ' . ($valueHrs ==
-                    $i ? 'selected="selected"' : '') . '>' . $hour . '</option>';
-            }
+        for ($i = 0; $i < 24; $i++) {
+            $hour = str_pad($i, 2, '0', STR_PAD_LEFT);
+            $html .= '<option value="' . $hour . '" ' . ($valueHrs ==
+                $i ? 'selected="selected"' : '') . '>' . $hour . '</option>';
         }
         $html .= '</select>' . "\n";
 
@@ -125,32 +104,18 @@ class CustomTime extends \Magento\Framework\Data\Form\Element\AbstractElement
         }
         $html .= '</select>' . "\n";
 
-        $html .= '<span class="time-separator">&nbsp;</span><select class="seconds" name="'
-            . $this->getName() . '" '
-            . $this->serialize($this->getHtmlAttributes())
-            . $this->_getUiId('second') . '>' . "\n";
-        for ($i = 0; $i < 60; $i++) {
-            $hour = str_pad($i, 2, '0', STR_PAD_LEFT);
-            $html .= '<option value="' . $hour . '" ' . ($valueSec ==
-                $i ? 'selected="selected"' : '') . '>' . $hour . '</option>';
-        }
-        $html .= '</select>' . "\n";
-
-        // if ($timeFormat == 12) {
-
-        //     $html .= '<span>&nbsp;</span><select name="Time">';
-        //     $arr = ['AM', 'PM'];
-        //     foreach ($arr as $value) {
-        //         $html .= '<option value="' . $value . '" '  . '>' . $value . '</option>';
-        //     }
-        // }
-
-
-        // $html .= '</select>' . "\n";
-        // $html .= '</select>' . "\n";
-
         $html .= $this->getAfterElementHtml();
- 
+        $html .= $this->secureRenderer->renderTag(
+            'style',
+            [],
+            <<<style
+                .select80wide {
+                    width: 80px;
+                }
+style
+            ,
+            false
+        );
 
         return $html;
     }

@@ -35,30 +35,42 @@ class OpeningsTime extends \Magento\Framework\View\Element\Template
         return $this->helperData->getTimeConfig();
     }
 
-    public function getWeekdays()
+    public function resolveTime($time)
+    {
+        $timeFormat = $this->getConfigTimeFormat();
+        if ($timeFormat =='12'){
+            return date('g:i A', strtotime($time));
+        }
+        return $time;
+    }
+
+    public function getWeekDaysTime()
     {
         $localeweekdays = array_column($this->getLocaleWeekdays(), 'label');
         $data = [];
         $weekdays = [];
         $days = $this->helperData->getDaysConfig();
-        $timeFormat = $this->getConfigTimeFormat();
 
         foreach ($days as $day => $time) {
+            $values = explode("_", $day);
+
             foreach ($localeweekdays as  $label => $value) {
-                if (strtok($day, '_') === $value) {
-                    $data[$label][$value][] = $time;
+                
+                if ($values[0] == $value){
+                    $data[$label][$values[0]][$values[1]] =  $this->resolveTime($time);
+          
+
                 }
+                
             }
         }
         ksort($data);
         foreach ($data as $day ) {
             foreach($day as $d => $t){
-                $weekdays[] = ['day' => $d, 'time' => [
-                    'openingtime' => str_replace(",", ":", substr($t[0], 0, -3)) .' ' . ($timeFormat == 12 ? str_replace(",", ":", $t[2]) : ''),
-                    'closingtime' => str_replace(",", ":", substr($t[1], 0, -3)) .' ' . ($timeFormat == 12 ? str_replace(",", ":", $t[3]) : ''),
-                ]];
+                $weekdays[] = ['day' => $d, 'time' => $t];
             }
         }
+
         return $weekdays;
 
     }
