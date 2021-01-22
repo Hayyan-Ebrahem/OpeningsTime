@@ -1,6 +1,6 @@
 <?php
 
-namespace MageGro\OpeningsTime\Block;
+namespace Magegro\OpeningsTime\Block;
 
 
 class OpeningsTime extends \Magento\Framework\View\Element\Template
@@ -11,7 +11,7 @@ class OpeningsTime extends \Magento\Framework\View\Element\Template
 
     public function __construct(
         \Magento\Backend\Block\Template\Context $context,
-        \MageGro\OpeningsTime\Helper\Data $helperData,
+        \Magegro\OpeningsTime\Helper\Data $helperData,
         \Magento\Framework\Locale\ListsInterface $localeLists,
         array $data = []
     ) {
@@ -29,7 +29,7 @@ class OpeningsTime extends \Magento\Framework\View\Element\Template
         return $this->_localeLists->getOptionWeekdays();
     }
 
-  
+
     public function getConfigTimeFormat()
     {
         return $this->helperData->getTimeConfig();
@@ -38,7 +38,7 @@ class OpeningsTime extends \Magento\Framework\View\Element\Template
     public function resolveTime($time)
     {
         $timeFormat = $this->getConfigTimeFormat();
-        if ($timeFormat =='12'){
+        if ($timeFormat == '12') {
             return date('g:i A', strtotime($time));
         }
         return $time;
@@ -55,23 +55,27 @@ class OpeningsTime extends \Magento\Framework\View\Element\Template
             $values = explode("_", $day);
 
             foreach ($localeweekdays as  $label => $value) {
-                
-                if ($values[0] == $value){
-                    $data[$label][$values[0]][$values[1]] =  $this->resolveTime($time);
-          
 
+                if ($values[0] == $value) {
+                    $data[$label][$values[0]][$values[1]] =  $this->resolveTime($time);
                 }
-                
             }
         }
         ksort($data);
-        foreach ($data as $day ) {
-            foreach($day as $d => $t){
+        foreach ($data as $day) {
+            foreach ($day as $d => $t) {
                 $weekdays[] = ['day' => $d, 'time' => $t];
             }
         }
 
         return $weekdays;
+    }
 
+    protected function _toHtml()
+    {
+        if (false != $this->getTemplate()) {
+            return parent::_toHtml();
+        }
+        return '<li><a ' . $this->getLinkAttributes() . ' >' . $this->escapeHtml($this->getLabel()) . '</a></li>';
     }
 }

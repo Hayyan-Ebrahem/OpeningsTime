@@ -5,7 +5,7 @@
  * See COPYING.txt for license details.
  */
 
-namespace MageGro\OpeningsTime\Block\Adminhtml\Form\Element;
+namespace Magegro\OpeningsTime\Block\Adminhtml\Form\Element;
 
 use Magento\Framework\App\ObjectManager;
 use Magento\Framework\Escaper;

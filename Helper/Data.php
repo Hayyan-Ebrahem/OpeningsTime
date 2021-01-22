@@ -1,6 +1,6 @@
 <?php
 
-namespace MageGro\OpeningsTime\Helper;
+namespace Magegro\OpeningsTime\Helper;
 
 use Magento\Framework\App\Helper\AbstractHelper;
 
