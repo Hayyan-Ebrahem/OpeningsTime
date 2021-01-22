@@ -3,5 +3,18 @@
 /**
  * @var \Magegro\OpeningsTime\Block\OpeningsTime $block
  */
-echo 'kkkkkkkkkkkkkkkkkkk';
 // echo $block->getWeekDaysTime();
+?>
+<?php $daytime = $block->getWeekDaysTime(); ?>
+<div class="yourtable">
+    <?php foreach ($daytime as $index=>$data){ ?>
+                 <div class="yourtable">   
+                    <tr>
+                    <td> <?php echo $data['day']; ?></td>
+                    <td> <?php echo $data['time']['open']; ?></td>
+                    <td> <?php echo $data['time']['close']; ?></td>
+
+                </tr>                  
+                 </div>
+     <?php  } ?> 
+</div>

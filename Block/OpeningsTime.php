@@ -71,11 +71,11 @@ class OpeningsTime extends \Magento\Framework\View\Element\Template
         return $weekdays;
     }
 
-    protected function _toHtml()
-    {
-        if (false != $this->getTemplate()) {
-            return parent::_toHtml();
-        }
-        return '<li><a ' . $this->getLinkAttributes() . ' >' . $this->escapeHtml($this->getLabel()) . '</a></li>';
-    }
+    // protected function _toHtml()
+    // {
+    //     if (false != $this->getTemplate()) {
+    //         return parent::_toHtml();
+    //     }
+    //     return '<li><a ' . $this->getLinkAttributes() . ' >' . $this->escapeHtml($this->getLabel()) . '</a></li>';
+    // }
 }
