@@ -6,15 +6,19 @@
 // echo $block->getWeekDaysTime();
 ?>
 <?php $daytime = $block->getWeekDaysTime(); ?>
-<div class="yourtable">
-    <?php foreach ($daytime as $index=>$data){ ?>
-                 <div class="yourtable">   
-                    <tr>
-                    <td> <?php echo $data['day']; ?></td>
-                    <td> <?php echo $data['time']['open']; ?></td>
-                    <td> <?php echo $data['time']['close']; ?></td>
+<div class="container demo-bg">
 
-                </tr>                  
-                 </div>
-     <?php  } ?> 
+    <div class="business-hours">
+        <h2 class="title">Opening Hours</h2>
+
+            <?php foreach ($daytime as $index => $data) { ?>
+<ul>
+                <li><?php echo $data['day']; ?></li>
+                <li><?php echo $data['time']['open']; ?></li>
+                <li><?php echo $data['time']['close']; ?></li>
+
+                </ul>
+
+            <?php  } ?>
+    </div>
 </div>
