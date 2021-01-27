@@ -41,5 +41,17 @@ class Data extends AbstractHelper
         return $days;
     }
 
+        /**
+     * Return first day of the week
+     *
+     * @return int
+     */
+    public function getFirstDay()
+    {
+        return (int)$this->_scopeconfig->getValue(
+            'general/locale/firstday',
+            \Magento\Store\Model\ScopeInterface::SCOPE_STORE
+        );
+    }
 
 }

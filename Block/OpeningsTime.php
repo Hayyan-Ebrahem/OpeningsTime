@@ -21,6 +21,12 @@ class OpeningsTime extends \Magento\Framework\View\Element\Template
         parent::__construct($context, $data);
     }
 
+
+    public function getFirstDay()
+    {
+        return $this->helperData->getFirstDay();
+    }
+
     /**
      * @return array
      */
@@ -67,15 +73,7 @@ class OpeningsTime extends \Magento\Framework\View\Element\Template
                 $weekdays[] = ['day' => $d, 'time' => $t];
             }
         }
-
+        
         return $weekdays;
     }
-
-    // protected function _toHtml()
-    // {
-    //     if (false != $this->getTemplate()) {
-    //         return parent::_toHtml();
-    //     }
-    //     return '<li><a ' . $this->getLinkAttributes() . ' >' . $this->escapeHtml($this->getLabel()) . '</a></li>';
-    // }
 }
