@@ -1,24 +1,27 @@
 <?php
 
-/**
- * @var \Magegro\OpeningsTime\Block\OpeningsTime $block
- */
-// echo $block->getWeekDaysTime();
+/** @var $block \Magegro\OpeningsTime\Block\OpeningsTime */
 ?>
-<?php $daytime = $block->getWeekDaysTime(); ?>
-<div class="container demo-bg">
+<div data-block="openings" data-bind="scope: 'openings_content'">
+    <!-- ko template: getTemplate() -->
+    <!-- /ko -->
 
-    <div class="business-hours">
-        <h2 class="title">Opening Hours</h2>
+    <script type="text/x-magento-init">
+        {
+        "[data-block='openings']": {
+            "Magento_Ui/js/core/app": {
+                "components": {
+                    "openings_content": {
+                        "component": "Magegro_OpeningsTime/js/openingstime",
+                        "template": "Magegro_OpeningsTime/openingstime/content",
+                        "openingstimedata": <?php /* @escapeNotVerified */ echo json_encode($block->getWeekDaysTime()); ?>,
+                        "timeformat": <?php /* @escapeNotVerified */ echo $block->getConfigTimeFormat(); ?>
 
-            <?php foreach ($daytime as $index => $data) { ?>
-<ul>
-                <li><?php echo $data['day']; ?></li>
-                <li><?php echo $data['time']['open']; ?></li>
-                <li><?php echo $data['time']['close']; ?></li>
+                    }
+                }
+            }
+        }
+    }
+</script>
 
-                </ul>
-
-            <?php  } ?>
-    </div>
 </div>
