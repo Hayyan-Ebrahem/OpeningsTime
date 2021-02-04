@@ -21,7 +21,6 @@ define([
 
            this.openingstime=config.openingstimedata;
            this.configtimeformat=config.timeformat;
-
            return this._super();
         },
         

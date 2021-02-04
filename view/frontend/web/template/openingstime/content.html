@@ -13,16 +13,17 @@
 
             </thead>
             <tbody>
-                <!-- ko foreach: { data: openingstime, as: 'daytime' } -->
 
+                <!-- ko foreach:  openingstime -->
 
-                <tr data-bind="attr: { id: $index }, style: { color:
-                 ($index() === (new Date()).getDay() && $parent.getOpeningStatus(daytime.time.open, daytime.time.close)) ? 'green': 'red' }">
-                    <td data-bind="text: daytime.day"></td>
-                    <td data-bind="text: daytime.time.open"></td>
-                    <td data-bind="text: daytime.time.close"></td>
+                <tr data-bind="attr: { id: $data.dayindex }, style: { color:
+                 ($data.dayindex === (new Date()).getDay() && $parent.getOpeningStatus($data.time.open, $data.time.close)) ? 'green': 'red' }">
+                    <td data-bind="text: $data.day"></td>
+                    <td data-bind="text: $data.time.open"></td>
+                    <td data-bind="text: $data.time.close"></td>
                 </tr>
                 <!-- /ko -->
+
             </tbody>
         </table>
     </div>
