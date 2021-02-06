@@ -6,18 +6,25 @@
                 <time_format>24h</time_format>
             </openings_time_setting>
             <store_openings_values>
+                <Sunday_status>1</Sunday_status>
                 <Sunday_open>11,30</Sunday_open>
                 <Sunday_close>3,00</Sunday_close>
+                <Monday_status>1</Monday_status>
                 <Monday_open>8,30</Monday_open>
                 <Monday_close>17,00</Monday_close>
+                <Tuesday_status>1</Tuesday_status>
                 <Tuesday_open>8,30</Tuesday_open>
                 <Tuesday_close>17,00</Tuesday_close>
+                <Wednesday_status>1</Wednesday_status>
                 <Wednesday_open>8,30</Wednesday_open>
                 <Wednesday_close>17,00</Wednesday_close>
+                <Thursday_status>1</Thursday_status>
                 <Thursday_open>8,30</Thursday_open>
                 <Thursday_close>17,00</Thursday_close>
+                <Friday_status>1</Friday_status>
                 <Friday_open>8,30</Friday_open>
                 <Friday_close>17,00</Friday_close>
+                <Saturday_status>1</Saturday_status>
                 <Saturday_open>11,00</Saturday_open>
                 <Saturday_close>14,00</Saturday_close>
             </store_openings_values>

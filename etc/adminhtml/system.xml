@@ -21,63 +21,133 @@
 
             <group id="store_openings_values" translate="label" sortOrder="500" showInDefault="1" showInWebsite="0" showInStore="1">
                 <label>Store Working Days And Time</label>
+                
                 <comment>An additional comment helping users to understand the effect when configuring the fields defined in this group.</comment>
-              
+                
+                <field id="Sunday_status" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Sunday Status</label>
+                    <source_model>Magegro\OpeningsTime\Model\Config\Source\Openclose</source_model>
+                </field>
+
                 <field id="Sunday_open" translate="label" type="Magegro\OpeningsTime\Block\Adminhtml\Form\Element\CustomTime" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Sunday Open</label>
+                    <depends> 
+                        <field id="Sunday_status">1</field>
+                    </depends>
                 </field>
-     
                 <field id="Sunday_close" translate="label" type="Magegro\OpeningsTime\Block\Adminhtml\Form\Element\CustomTime" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Sunday Close</label>
-
+                    <depends> 
+                        <field id="Sunday_status">1</field>
+                    </depends>
                 </field>
-    
-
+     
+                <field id="Monday_status" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Monday Status</label>
+                    <source_model>Magegro\OpeningsTime\Model\Config\Source\Openclose</source_model>
+                </field>
                 <field id="Monday_open" translate="label" type="Magegro\OpeningsTime\Block\Adminhtml\Form\Element\CustomTime" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
-                    <label>Monday</label>
+                    <label>Monday Open</label>
+                    <depends> 
+                        <field id="Monday_status">1</field>
+                    </depends>
                 </field>
        
                 <field id="Monday_close" translate="label" type="Magegro\OpeningsTime\Block\Adminhtml\Form\Element\CustomTime" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Monday Close</label>
+                    <depends> 
+                        <field id="Monday_status">1</field>
+                    </depends>
                 </field>
      
-
+                <field id="Tuesday_status" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label> Tuesday Status</label>
+                    <source_model>Magegro\OpeningsTime\Model\Config\Source\Openclose</source_model>
+                </field>
                 <field id="Tuesday_open" translate="label" type="Magegro\OpeningsTime\Block\Adminhtml\Form\Element\CustomTime" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
-                    <label>Tuesday</label>
+                    <label>Tuesday Open</label>
+                    <depends> 
+                        <field id="Tuesday_status">1</field>
+                    </depends>
                 </field>
      
                 <field id="Tuesday_close" translate="label" type="Magegro\OpeningsTime\Block\Adminhtml\Form\Element\CustomTime" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Tuesday Close</label>
+                    <depends> 
+                        <field id="Tuesday_status">1</field>
+                    </depends>
                 </field>
        
-
+                <field id="Wednesday_status" translate="label" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Wednesday Status</label>
+                    <source_model>Magegro\OpeningsTime\Model\Config\Source\Openclose</source_model>
+                </field>
                 <field id="Wednesday_open" translate="label" type="Magegro\OpeningsTime\Block\Adminhtml\Form\Element\CustomTime" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
-                    <label>Wednesday</label>
+                    <label>Wednesday Open</label>
+                    <depends> 
+                        <field id="Wednesday_status">1</field>
+                    </depends>
                 </field>
        
                 <field id="Wednesday_close" translate="label" type="Magegro\OpeningsTime\Block\Adminhtml\Form\Element\CustomTime" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Wednesday Close</label>
+                    <depends> 
+                        <field id="Wednesday_status">1</field>
+                    </depends>
                 </field>
           
-
+                <field id="Thursday_status" translate="label" type="select" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Thursday Status</label>
+                    <source_model>Magegro\OpeningsTime\Model\Config\Source\Openclose</source_model>
+                </field>
                 <field id="Thursday_open" translate="label" type="Magegro\OpeningsTime\Block\Adminhtml\Form\Element\CustomTime" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
-                    <label>Thursday</label>
+                    <label>Thursday Open</label>
+                    <depends> 
+                        <field id="Thursday_status">1</field>
+                    </depends>
                 </field>
           
                 <field id="Thursday_close" translate="label" type="Magegro\OpeningsTime\Block\Adminhtml\Form\Element\CustomTime" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Thursday Close</label>
+                    <depends> 
+                        <field id="Thursday_status">1</field>
+                    </depends>
                 </field>
          
-
+                <field id="Friday_status" translate="label" type="select" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Friday Status</label>
+                    <source_model>Magegro\OpeningsTime\Model\Config\Source\Openclose</source_model>
+                </field>
                 <field id="Friday_open" translate="label" type="Magegro\OpeningsTime\Block\Adminhtml\Form\Element\CustomTime" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
-                    <label>Friday</label>
+                    <label>Friday Open</label>
+                    <depends> 
+                        <field id="Friday_status">1</field>
+                    </depends>
                 </field>
            
                 <field id="Friday_close" translate="label" type="Magegro\OpeningsTime\Block\Adminhtml\Form\Element\CustomTime" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Friday Close</label>
+                    <depends> 
+                        <field id="Friday_status">1</field>
+                    </depends>
                 </field>
           
-
+                <field id="Saturday_status" translate="label" type="select" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Saturday Status</label>
+                    <source_model>Magegro\OpeningsTime\Model\Config\Source\Openclose</source_model>
+                </field>
                 <field id="Saturday_open" translate="label" type="Magegro\OpeningsTime\Block\Adminhtml\Form\Element\CustomTime" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
-                    <label>Saturday</label>
+                    <label>Saturday Open</label>
+                    <depends> 
+                        <field id="Saturday_status">1</field>
+                    </depends>
                 </field>
      
                 <field id="Saturday_close" translate="label" type="Magegro\OpeningsTime\Block\Adminhtml\Form\Element\CustomTime" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Saturday Close</label>
+                    <depends> 
+                        <field id="Saturday_status">1</field>
+                    </depends>
                 </field>
          
 
