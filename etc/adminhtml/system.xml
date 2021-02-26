@@ -5,7 +5,7 @@
         </tab>
 
         <section id="magegro_store_openingstime_general" showInDefault="1" showInWebsite="0" showInStore="1" sortOrder="50" translate="label">
-            <label>A meaningful section label</label>
+            <label>Magegro Openings Time</label>
             <tab>Store_Openings_Time_Config</tab>
             <resource>VENDOR_MODULE::path_to_the_acl_resource</resource>
             <group id="openings_time_settings" translate="label" sortOrder="50" showInDefault="1" showInWebsite="0" showInStore="1">

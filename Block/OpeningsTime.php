@@ -41,43 +41,41 @@ class OpeningsTime extends \Magento\Framework\View\Element\Template
         return $this->helperData->getTimeConfig();
     }
 
-    public function resolveTime($time)
+    public function resolveTime($data)
     {
+        if($data === '0' || $data === '1' ){
+            return strval($data);
+        }
         $timeFormat = $this->getConfigTimeFormat();
         if ($timeFormat == '12') {
-            return date('g:i A', strtotime($time));
+            return date('g:i A', strtotime($data));
         }
-        return $time;
+        return $data;
     }
 
     public function getWeekDaysTime()
     {
         $localeweekdays = array_column($this->getLocaleWeekdays(), 'label');
-        $data = [];
+        $source = [];
         $days = $this->helperData->getDaysConfig();
 
 
-        foreach ($days as $day => $time) {
+        foreach ($days as $day => $data) {
             $values = explode("_", $day);
-
-            foreach ($localeweekdays as  $index => $mageday) {
-
-                if ($values[0] == $mageday) {
-                    $data[$index][$values[0]][$values[1]] =  $this->resolveTime($time);
-                }
-            }
+            $daynameindex = array_search($values[0], $localeweekdays);
+            $source[$daynameindex][$values[0]][$values[1]] =  $this->resolveTime($data);
         }
 
         $FirstDayIndex = $this->helperData->getFirstDay();
 
-        $result = array_merge(array_slice($data, $FirstDayIndex, null, true), array_slice($data, 0, $FirstDayIndex, true));
+        $result = array_merge(array_slice($source, $FirstDayIndex, null, true), array_slice($source, 0, $FirstDayIndex, true));
 
         foreach ($result as $index => $day) {
+            if($day[key($day)]['status'] === '0'){ continue; }
             $daynameindex = array_search(key($day), $localeweekdays);
-
-            $weekdays[$index] = ['dayindex' => $daynameindex, 'day' => key($day), 'time' => $day[$localeweekdays[$daynameindex]]];
+            $weekdays[$index] = ['dayindex' => $daynameindex, 'day' => $localeweekdays[$daynameindex], 'open' => $day[key($day)]['open'], 'close'  => $day[key($day)]['close']];
         }
 
-        return $weekdays;
+        return array_values($weekdays);
     }
 }

@@ -15,12 +15,11 @@
             <tbody>
 
                 <!-- ko foreach:  openingstime -->
-
                 <tr data-bind="attr: { id: $data.dayindex }, style: { color:
-                 ($data.dayindex === (new Date()).getDay() && $parent.getOpeningStatus($data.time.open, $data.time.close)) ? 'green': 'red' }">
+                 ($data.dayindex === (new Date()).getDay() && $parent.getOpeningStatus($data.open, $data.close)) ? 'green': 'red' }">
                     <td data-bind="text: $data.day"></td>
-                    <td data-bind="text: $data.time.open"></td>
-                    <td data-bind="text: $data.time.close"></td>
+                    <td data-bind="text: $data.open"></td>
+                    <td data-bind="text: $data.close"></td>
                 </tr>
                 <!-- /ko -->
 
