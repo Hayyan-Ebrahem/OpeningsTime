@@ -43,7 +43,7 @@ class OpeningsTime extends \Magento\Framework\View\Element\Template
 
     public function resolveTime($data)
     {
-        if($data === '0' || $data === '1' ){
+        if ($data === '0' || $data === '1') {
             return strval($data);
         }
         $timeFormat = $this->getConfigTimeFormat();
@@ -71,9 +71,16 @@ class OpeningsTime extends \Magento\Framework\View\Element\Template
         $result = array_merge(array_slice($source, $FirstDayIndex, null, true), array_slice($source, 0, $FirstDayIndex, true));
 
         foreach ($result as $index => $day) {
-            if($day[key($day)]['status'] === '0'){ continue; }
+            if ($day[key($day)]['status'] === '0') {
+                continue;
+            }
             $daynameindex = array_search(key($day), $localeweekdays);
-            $weekdays[$index] = ['dayindex' => $daynameindex, 'day' => $localeweekdays[$daynameindex], 'open' => $day[key($day)]['open'], 'close'  => $day[key($day)]['close']];
+            $weekdays[$index] = [
+                'dayindex' => $daynameindex,
+                'day' => $localeweekdays[$daynameindex],
+                'open' => $day[key($day)]['open'],
+                'close'  => $day[key($day)]['close']
+            ];
         }
 
         return array_values($weekdays);
