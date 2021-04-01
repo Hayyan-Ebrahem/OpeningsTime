@@ -58,6 +58,7 @@ class OpeningsTime extends \Magento\Framework\View\Element\Template
         $localeweekdays = array_column($this->getLocaleWeekdays(), 'label');
         $source = [];
         $days = $this->helperData->getDaysConfig();
+        $FirstDayIndex = $this->helperData->getFirstDay();
 
 
         foreach ($days as $day => $data) {
@@ -66,7 +67,6 @@ class OpeningsTime extends \Magento\Framework\View\Element\Template
             $source[$daynameindex][$values[0]][$values[1]] =  $this->resolveTime($data);
         }
 
-        $FirstDayIndex = $this->helperData->getFirstDay();
 
         $result = array_merge(array_slice($source, $FirstDayIndex, null, true), array_slice($source, 0, $FirstDayIndex, true));
 

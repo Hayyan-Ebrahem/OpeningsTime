@@ -1,9 +1,16 @@
 <?xml version="1.0"?>
-<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
 
     <body>
-        <referenceContainer name="content">
-            <block class="Magegro\OpeningsTime\Block\OpeningsTime" name="openingstime.link" template="Magegro_OpeningsTime::openingstime.phtml" />
+        <referenceContainer name="columns">
+            <referenceContainer name="sidebar.main">
+                <block class="Magegro\OpeningsTime\Block\OpeningsTime" name="openingstime.link" template="Magegro_OpeningsTime::openingstime.phtml" />
+            </referenceContainer>
+            <referenceBlock name="sidebar.additional" remove="true"/>
+            <referenceContainer name="columns.main">
+                <block class="Magegro\OpeningsTime\Block\Info" name="info.link" template="Magegro_OpeningsTime::info.phtml" />
+            </referenceContainer>
+
         </referenceContainer>
     </body>
 </page>
