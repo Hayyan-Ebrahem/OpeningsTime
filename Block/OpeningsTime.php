@@ -60,27 +60,35 @@ class OpeningsTime extends \Magento\Framework\View\Element\Template
         $days = $this->helperData->getDaysConfig();
         $FirstDayIndex = $this->helperData->getFirstDay();
 
-
         foreach ($days as $day => $data) {
             $values = explode("_", $day);
             $daynameindex = array_search($values[0], $localeweekdays);
             $source[$daynameindex][$values[0]][$values[1]] =  $this->resolveTime($data);
         }
-
-
         $result = array_merge(array_slice($source, $FirstDayIndex, null, true), array_slice($source, 0, $FirstDayIndex, true));
-
+        
         foreach ($result as $index => $day) {
-            if ($day[key($day)]['status'] === '0') {
-                continue;
-            }
             $daynameindex = array_search(key($day), $localeweekdays);
-            $weekdays[$index] = [
-                'dayindex' => $daynameindex,
-                'day' => $localeweekdays[$daynameindex],
-                'open' => $day[key($day)]['open'],
-                'close'  => $day[key($day)]['close']
-            ];
+
+            if ($day[key($day)]['status'] === '0') {
+                $weekdays[$index] = [
+                    'dayindex' => $daynameindex,
+                    'day' => $localeweekdays[$daynameindex],
+                    'open' => 'Closed',
+                    'close'  => 'Closed'
+                ];
+
+            }
+            else {
+                $weekdays[$index] = [
+                    'dayindex' => $daynameindex,
+                    'day' => $localeweekdays[$daynameindex],
+                    'open' => $day[key($day)]['open'],
+                    'close'  => $day[key($day)]['close']
+                ];
+
+            }
+
         }
 
         return array_values($weekdays);
