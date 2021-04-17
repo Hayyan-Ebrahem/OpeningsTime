@@ -3,7 +3,6 @@ namespace Magegro\OpeningsTime\Controller\Index;
 
 class Index extends \Magento\Framework\App\Action\Action
 {
-	
 	protected $_pageFactory;
 
 	public function __construct(
